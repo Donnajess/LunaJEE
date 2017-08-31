@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
@@ -15,7 +16,7 @@ public class Fournisseur implements Serializable {
 
 	@Id
 	@GeneratedValue
-    private long code;
+    private Long code;
 	
 	private String societe;
 	

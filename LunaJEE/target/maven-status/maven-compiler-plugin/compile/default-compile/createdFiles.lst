@@ -1,0 +1,16 @@
+com\formation\DAO\ClientDAO.class
+com\formation\entite\Client.class
+com\formation\entite\Fournisseur.class
+com\formation\DAO\CommandeDAOImpl.class
+com\formation\entite\Ligne.class
+com\formation\DAO\ArticleDAO.class
+com\formation\controle\utilitaires\GestionDates.class
+com\formation\controle\utilitaires\ConvertisseurLocalDateTime.class
+com\formation\DAO\ClientDAOImpl.class
+com\formation\DAO\CommandeDAO.class
+com\formation\entite\Commande.class
+com\formation\DAO\ArticleDAOImpl.class
+com\formation\entite\ModeReglements.class
+com\formation\entite\Categorie.class
+com\formation\entite\Article.class
+com\formation\entite\Adresse.class

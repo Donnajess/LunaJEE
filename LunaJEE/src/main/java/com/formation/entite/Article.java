@@ -11,6 +11,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -24,13 +26,14 @@ public class Article implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private String code;
+	@GeneratedValue
+	private Long code;
 
 	@ManyToOne(cascade = { CascadeType.PERSIST })
 	private Categorie categorie;
 
-	@ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-	private Set<Fournisseur> fournisseurs = new HashSet<>();
+	//@ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+	//private Set<Fournisseur> fournisseurs = new HashSet<>();
 	
 	@Basic
 	private String designation;
@@ -46,22 +49,30 @@ public class Article implements Serializable {
 	/*
 	 * Constructeur
 	 */
-	public Article(String code, String codeCategorie,
-			String designation,
-			int quantite, double prixUnitaire,
-			Instant date) {
-		this(code, 
-				new Categorie().setCode(codeCategorie),
-				designation, 
-				quantite, prixUnitaire,
-				date);
-	}
+//	public Article(String code, String codeCategorie,
+//			String designation,
+//			int quantite, double prixUnitaire,
+//			Instant date) {
+//		this(code, 
+//				new Categorie().setCode(codeCategorie),
+//				designation, 
+//				quantite, prixUnitaire,
+//				date);
+//	}
 	
-	public Article(String code, Categorie categorie,
-			String designation,
-			int quantite, double prixUnitaire,
-			Instant date) {
-		this.code = code;
+//	public Article(String code, Categorie categorie,
+//			String designation,
+//			int quantite, double prixUnitaire,
+//			Instant date) {
+//		this.code = code;
+//		this.categorie = categorie;
+//		this.designation = designation;
+//		this.quantite = quantite;
+//		this.prixUnitaire = prixUnitaire;
+//		setDate(date);
+//	}
+	
+	public Article(Categorie categorie,String designation,int quantite, double prixUnitaire,Instant date) {
 		this.categorie = categorie;
 		this.designation = designation;
 		this.quantite = quantite;
@@ -78,7 +89,7 @@ public class Article implements Serializable {
 	/*
 	 * Accesseurs
 	 */
-	public String getCode() {
+	public Long getCode() {
 		return code;
 	}
 
@@ -102,14 +113,14 @@ public class Article implements Serializable {
 		return GestionDates.instant(date);
 	}
 	
-	public Set<Fournisseur> getFournisseurs() {
+	/*public Set<Fournisseur> getFournisseurs() {
 		return this.fournisseurs;
-	}
+	}*/
 
 	/*
 	 * Mutateurs
 	 */
-	public void setCode(String code) {
+	public void setCode(Long code) {
 		this.code = code;
 	}
 
@@ -129,9 +140,9 @@ public class Article implements Serializable {
 		this.prixUnitaire = prix_unitaire;
 	}
 
-	public void setFournisseurs(Set<Fournisseur> fournisseurs) {
+	/*public void setFournisseurs(Set<Fournisseur> fournisseurs) {
 		this.fournisseurs = fournisseurs;
-	}
+	}*/
 	
 	public void setDate(Instant date) {
 		this.date = GestionDates.date(date);
