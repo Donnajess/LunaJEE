@@ -38,7 +38,7 @@ public class CategorieDAOImpl implements CategorieDAO {
 	@Override
 	public void addCategorie(Categorie categorie) {
 		// TODO Auto-generated method stub
-		this.sessionFactory.getCurrentSession().saveOrUpdate(categorie);
+		this.sessionFactory.getCurrentSession().save(categorie);
 	}
 
 	@Override

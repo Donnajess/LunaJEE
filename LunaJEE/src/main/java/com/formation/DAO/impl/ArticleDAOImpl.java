@@ -39,13 +39,13 @@ public class ArticleDAOImpl implements ArticleDAO {
 	@Override
 	public void addArticle(Article article) {
 		// TODO Auto-generated method stub
-		this.sessionFactory.getCurrentSession().save(article);
+		this.sessionFactory.getCurrentSession().saveOrUpdate(article);
 	}
 
 	@Override
 	public void updateArticle(Article article) {
 		// TODO Auto-generated method stub
-		this.sessionFactory.getCurrentSession().save(article);
+		this.sessionFactory.getCurrentSession().saveOrUpdate(article);
 	}
 
 	@Override

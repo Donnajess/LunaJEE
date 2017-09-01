@@ -2,12 +2,18 @@ package com.formation.DAO.impl;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.formation.DAO.LigneDAO;
 import com.formation.entite.Ligne;
 
+
+@Repository("ligneDAO")
+@Transactional
 public class LigneDAOImpl implements LigneDAO {
 
 	@Autowired  

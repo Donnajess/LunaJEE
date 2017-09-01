@@ -72,6 +72,14 @@ public class Commande implements Serializable {
 	public Commande() {
 		super();
 	}
+	
+	public Commande(Client client, ModeReglements modeReglement, LocalDateTime date, List<Ligne> lignes) {
+		super();
+		this.client = client;
+		this.modeReglement = modeReglement;
+		this.date = date;
+		this.lignes = lignes;
+	}
 
 	/*
 	 * Accesseurs

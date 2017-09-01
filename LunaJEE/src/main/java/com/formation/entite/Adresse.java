@@ -22,6 +22,7 @@ public class Adresse implements Serializable {
 
 	private String ville;
 
+
 	public String getRue() {
 		return this.rue;
 	}
