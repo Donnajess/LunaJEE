@@ -30,7 +30,7 @@ public class CommandeDAOImpl implements CommandeDAO {
 	}
 
 	@Override
-	public Commande getCommandeById(int code) {
+	public Commande getCommandeById(long code) {
 		// TODO Auto-generated method stub
 		return this.sessionFactory.getCurrentSession().get(Commande.class, code);
 	}
@@ -48,7 +48,7 @@ public class CommandeDAOImpl implements CommandeDAO {
 	}
 
 	@Override
-	public void deleteCommande(int code) {
+	public void deleteCommande(long code) {
 		// TODO Auto-generated method stub
 		Commande commande = sessionFactory.getCurrentSession().get(Commande.class, code);
 		this.sessionFactory.getCurrentSession().delete(commande);

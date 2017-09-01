@@ -9,8 +9,8 @@ import com.formation.entite.Client;
 public interface ClientDAO {
 	
 	public List<Client> getAllClient();
-	public Client getClientById(int code);
+	public Client getClientById(long code);
 	public void addClient(Client client);
 	public void updateClient(Client client);
-	public void deleteClient(int code);
+	public void deleteClient(long code);
 }
