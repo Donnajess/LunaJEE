@@ -13,8 +13,8 @@
 	<div class="login-page">
 		<div class="form">
 			<s:form cssClass="centre" theme="css_xhtml">
-				<s:label value="SARL LUNA"></s:label>
-				<s:label value="Connexion"></s:label>
+				<s:label value="SARL LUNA"><img src="images/logo_actifSolution.png"/></s:label>
+				</br>
 				<s:textfield type="text" placeholder="username" />
 				<s:textfield type="password" placeholder="password" />
 				<s:submit value="Login" cssClass="bouton" />

@@ -5,18 +5,28 @@
   padding: 8% 0 0;
   margin: auto;
 }
-.rounded {
-   -webkit-border-radius: 20px;
-   -moz-border-radius: 20px;
-   border-radius: 20px;
-}
 .styled-select {
    background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
    height: 29px;
    overflow: hidden;
    width: 240px;
 }
-.orange   { background-color: #ff8040; }
+
+.styled-select select {
+   background: transparent;
+   border: none;
+   font-size: 14px;
+   height: 29px;
+   padding: 5px; /* If you add too much padding here, the options won't show in IE */
+   width: 268px;
+}
+.semi-square {
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+}
+.orange select    { color: #fff; }
+.orange    { background-color: #ff8000; }
 .form {
   position: relative;
   z-index: 1;
@@ -43,11 +53,11 @@
 	font-family: "Roboto", sans-serif;
 	text-transform: uppercase;
 	outline: 0;
-	background: #ff8040;
+	background: #ff8000;
 	width: 100%;
 	border: 0;
 	padding: 15px;
-	color: #ff8040;
+	color: #ff8000;
 	font-size: 14px;
 	-webkit-transition: all 0.3 ease;
 	transition: all 0.3 ease;
@@ -60,7 +70,7 @@
   font-size: 12px;
 }
 .form .message a {
-  color: #ff8040;
+  color: #ff8000;
   text-decoration: none;
 }
 .form .register-form {
@@ -100,11 +110,11 @@
   color: #EF3B3A;
 }
 body {
-  background: #ff8040; /* fallback for old browsers */
-  background: -webkit-linear-gradient(right, #ff8040, #ff8040);
-  background: -moz-linear-gradient(right, #ff8040, #ff8040);
-  background: -o-linear-gradient(right, #ff8040, #ff8040);
-  background: linear-gradient(to left, #ff8040, #ff8040);
+  background: #ff8000; /* fallback for old browsers */
+  background: -webkit-linear-gradient(right, #ff8000, #ff8000);
+  background: -moz-linear-gradient(right, #ff8000, #ff8000);
+  background: -o-linear-gradient(right, #ff8000, #ff8000);
+  background: linear-gradient(to left, #ff8000, #ff8000);
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;      

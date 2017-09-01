@@ -113,13 +113,14 @@ public class Client implements Serializable {
 	// 1er Constructeur
 	// pour la création complète d'un client
 	// limitée ici à 5 propriétés pour alléger le code
-	public Client(String nom, String prenom,
-			boolean carteFidelite, Adresse adresse, LocalDate creation) {
+	public Client(Long code, 
+			String nom, String prenom,
+			boolean carteFidelite, Instant creation) {
+		this.code = code;
 		this.nom = nom;
 		this.prenom = prenom;
-		this.carte_fidele = carteFidelite;
-		this.adresse = adresse;
-		this.date = creation;
+		carte_fidele = carteFidelite;
+		setDateCreation(creation);
 //		LocalDate.of(date.getYear() +1900, date.getMonth(), date.getDate());
 	}
 

@@ -44,7 +44,7 @@ public class AdresseDAOImpl implements AdresseDAO {
 	@Override
 	public void updateAdresse(Adresse adresse) {
 		// TODO Auto-generated method stub
-		this.sessionFactory.getCurrentSession().save(adresse);
+		this.sessionFactory.getCurrentSession().saveOrUpdate(adresse);
 	}
 
 	@Override
