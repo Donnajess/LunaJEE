@@ -12,12 +12,12 @@
 <body>
 	<div class="login-page">
 		<div class="form">
-			<s:form cssClass="centre" theme="css_xhtml">
+			<s:form action="insert" method="post" cssClass="centre" theme="css_xhtml">
 				<s:label value="SARL LUNA"><img src="images/logo_actifSolution.png"/></s:label>
 				</br>
-				<s:textfield type="text" placeholder="username" />
-				<s:textfield type="password" placeholder="password" />
-				<s:submit value="Login" cssClass="bouton" />
+				<s:textfield type="text" placeholder="username" name="user.username" />
+				<s:textfield type="password" placeholder="password" name="user.mdp" />
+				<s:submit name="Valider" value="Login" cssClass="bouton" />
 			</s:form>
 		</div>
 	</div>
