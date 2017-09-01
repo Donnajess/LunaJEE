@@ -12,12 +12,19 @@
 <body>
 	<div class="login-page">
 		<div class="form">
-			<s:form cssClass="centre" theme="css_xhtml">
-				<s:label value="Accueil"></s:label>
-				</br>
-				<s:submit cssClass="bouton" value="Client" />
-				<s:submit value="Article" cssClass="bouton" />
-				<s:submit value="Commande" cssClass="bouton" />
+			<s:label value="Accueil"></s:label>
+			</br>
+			<s:form cssClass="centre" theme="css_xhtml" action="client"
+				method="post">
+				<s:submit name="Valider" cssClass="bouton" value="Client" />
+			</s:form>
+			<s:form cssClass="centre" theme="css_xhtml" action="article"
+				method="post">
+				<s:submit name="Valider" value="Article" cssClass="bouton" />
+			</s:form>
+			<s:form cssClass="centre" theme="css_xhtml" action="commande"
+				method="post">
+				<s:submit name="Valider" value="Commande" cssClass="bouton" />
 			</s:form>
 		</div>
 	</div>

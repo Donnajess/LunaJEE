@@ -12,7 +12,7 @@
 <body>
 	<div class="login-page">
 		<div class="form">
-			<s:form action="insert" method="post" cssClass="centre" theme="css_xhtml">
+			<s:form action="login" method="post" cssClass="centre" theme="css_xhtml">
 				<s:label value="SARL LUNA"><img src="images/logo_actifSolution.png"/></s:label>
 				</br>
 				<s:textfield type="text" placeholder="username" name="user.username" />

@@ -24,6 +24,7 @@ public class UserDAOImpl implements UserDAO {
 		this.sessionFactory = sessionFactory;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<User> getAllUser() {
 		return this.sessionFactory.getCurrentSession().createQuery("from User").list();
