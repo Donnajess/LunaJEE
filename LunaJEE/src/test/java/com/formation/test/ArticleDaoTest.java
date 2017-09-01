@@ -35,11 +35,13 @@ public class ArticleDaoTest {
 	@Test
 	public void test1AddArticle() {
 		Categorie categorie = new Categorie("Electroménager");
-		categorieDAO.addCategorie(categorie);
+		
+		//categorieDAO.addCategorie(categorie);
+		
 		Instant instant = Instant.now();
 		Article article = new Article(categorie, "Machine à laver", 15, 144.99, instant);
 		articleDAO.addArticle(article);
-		Assert.assertEquals(1, articleDAO.getAllArticles().size());
+		Assert.assertEquals(3, articleDAO.getAllArticles().size());
 	}
 	
 	@Test

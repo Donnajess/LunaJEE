@@ -29,7 +29,7 @@ public class Article implements Serializable {
 	@GeneratedValue
 	private Long code;
 
-	@ManyToOne(cascade = { CascadeType.PERSIST })
+	@ManyToOne(cascade = { CascadeType.ALL })
 	private Categorie categorie;
 
 	//@ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)

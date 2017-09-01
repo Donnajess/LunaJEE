@@ -14,7 +14,7 @@
 		<div class="form">
 			<s:label value="Accueil"></s:label>
 			</br>
-			<s:form cssClass="centre" theme="css_xhtml" action="client"
+			<s:form cssClass="centre" theme="css_xhtml" action="listClient"
 				method="post">
 				<s:submit name="Valider" cssClass="bouton" value="Client" />
 			</s:form>

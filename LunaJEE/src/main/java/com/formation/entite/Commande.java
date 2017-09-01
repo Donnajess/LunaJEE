@@ -45,7 +45,7 @@ public class Commande implements Serializable {
 	@GeneratedValue
 	private Long code;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Client client;
 
 	@ManyToOne
