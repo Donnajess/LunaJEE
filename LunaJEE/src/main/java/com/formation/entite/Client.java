@@ -43,7 +43,7 @@ public class Client implements Serializable {
 	// l'identifiant en base de données
 	@Id
 	@GeneratedValue
-	private String code;
+	private Long code;
 
 	@Basic
 	private String nom;
@@ -59,7 +59,7 @@ public class Client implements Serializable {
 
 	// Getters de base
 	// ---------------
-	public String getCode() {
+	public Long getCode() {
 		return code;
 	}
 
@@ -80,7 +80,7 @@ public class Client implements Serializable {
 	}
 
 	// Setters
-	public void setCode(String code) {
+	public void setCode(Long code) {
 		this.code = code;
 	}
 
@@ -113,7 +113,7 @@ public class Client implements Serializable {
 	// 1er Constructeur
 	// pour la création complète d'un client
 	// limitée ici à 5 propriétés pour alléger le code
-	public Client(String code, 
+	public Client(Long code, 
 			String nom, String prenom,
 			boolean carteFidelite, Instant creation) {
 		this.code = code;

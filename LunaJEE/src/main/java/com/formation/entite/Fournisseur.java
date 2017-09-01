@@ -16,7 +16,7 @@ public class Fournisseur implements Serializable {
 
 	@Id
 	@GeneratedValue
-    private long code;
+    private Long code;
 	
 	private String societe;
 	

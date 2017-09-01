@@ -43,7 +43,7 @@ public class Commande implements Serializable {
 
 	@Id
 	@GeneratedValue
-	private String code;
+	private Long code;
 
 	@ManyToOne
 	private Client client;
@@ -62,7 +62,7 @@ public class Commande implements Serializable {
 	/*
 	 * Constructeur 1
 	 */
-	public Commande(String code) {
+	public Commande(Long code) {
 		this.code = code;
 	}
 
@@ -76,7 +76,7 @@ public class Commande implements Serializable {
 	/*
 	 * Accesseurs
 	 */
-	public String getCode() {
+	public Long getCode() {
 		return code;
 	}
 

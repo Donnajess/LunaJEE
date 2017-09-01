@@ -27,7 +27,7 @@ public class Article implements Serializable {
 
 	@Id
 	@GeneratedValue
-	private String code;
+	private Long code;
 
 	@ManyToOne(cascade = { CascadeType.PERSIST })
 	private Categorie categorie;
@@ -89,7 +89,7 @@ public class Article implements Serializable {
 	/*
 	 * Accesseurs
 	 */
-	public String getCode() {
+	public Long getCode() {
 		return code;
 	}
 
@@ -120,7 +120,7 @@ public class Article implements Serializable {
 	/*
 	 * Mutateurs
 	 */
-	public void setCode(String code) {
+	public void setCode(Long code) {
 		this.code = code;
 	}
 

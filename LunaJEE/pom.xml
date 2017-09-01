@@ -146,7 +146,13 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>3.1.0</version>
+					<configuration>
+						<warSourceDirectory>src/main/webapp</warSourceDirectory>
+						<warName>LunaJEE</warName>
+						<failOnMissingWebXml>false</failOnMissingWebXml>
+					</configuration>
 			</plugin>
 		</plugins>
+		<finalName>LunaJEE</finalName>
 	</build>
 </project>

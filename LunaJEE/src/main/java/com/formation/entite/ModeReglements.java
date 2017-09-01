@@ -16,7 +16,7 @@ public class ModeReglements implements Serializable {
 
 	@Id
 	@GeneratedValue
-    private int code;
+    private Long code;
 	
 	@Basic
     private String type;
@@ -44,7 +44,7 @@ public class ModeReglements implements Serializable {
     /*
      * Accesseurs
      */
-    public int getCode() {
+    public Long getCode() {
         return code;
     }
     public String getType() {

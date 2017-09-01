@@ -15,7 +15,7 @@ public class Categorie implements Serializable {
 
 	@Id
 	@GeneratedValue
-	private String code;
+	private Long code;
 
 	@Basic
 	private String designation;
@@ -28,11 +28,11 @@ public class Categorie implements Serializable {
 		this.designation = designation;
 	}
 
-	public String getCode() {
+	public Long getCode() {
 		return code;
 	}
 
-	public Categorie setCode(String code) {
+	public Categorie setCode(Long code) {
 		this.code = code;
 		return this;
 	}
