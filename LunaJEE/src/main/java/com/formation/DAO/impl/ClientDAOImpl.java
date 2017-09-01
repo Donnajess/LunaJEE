@@ -1,4 +1,4 @@
-package com.formation.DAO;
+package com.formation.DAO.impl;
 
 import java.util.List;
 
@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.formation.DAO.ClientDAO;
 import com.formation.entite.Client;
 
 @Repository("clientDAO")

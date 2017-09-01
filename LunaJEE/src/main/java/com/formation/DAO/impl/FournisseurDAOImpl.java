@@ -1,12 +1,18 @@
-package com.formation.DAO;
+package com.formation.DAO.impl;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
+import com.formation.DAO.FournisseurDAO;
 import com.formation.entite.Fournisseur;
 
+@Repository("fournisseurDAO")
+@Transactional
 public class FournisseurDAOImpl implements FournisseurDAO {
 
 	@Autowired  

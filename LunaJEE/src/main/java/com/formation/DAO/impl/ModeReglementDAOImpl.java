@@ -1,12 +1,18 @@
-package com.formation.DAO;
+package com.formation.DAO.impl;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
+import com.formation.DAO.ModeReglementDAO;
 import com.formation.entite.ModeReglements;
 
+@Repository("modeReglementDAO")
+@Transactional
 public class ModeReglementDAOImpl implements ModeReglementDAO {
 
 	@Autowired  

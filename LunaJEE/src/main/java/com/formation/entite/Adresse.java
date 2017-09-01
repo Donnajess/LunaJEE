@@ -22,6 +22,14 @@ public class Adresse implements Serializable {
 	
 	private String ville;
 
+
+	public Adresse(String rue, String codePostal, String ville) {
+		super();
+		this.rue = rue;
+		this.codePostal = codePostal;
+		this.ville = ville;
+	}
+
 	public String getRue() {
 		return this.rue;
 	}
