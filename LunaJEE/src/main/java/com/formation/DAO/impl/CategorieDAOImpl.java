@@ -1,4 +1,4 @@
-package com.formation.DAO;
+package com.formation.DAO.impl;
 
 import java.util.List;
 
@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.formation.DAO.CategorieDAO;
 import com.formation.entite.Article;
 import com.formation.entite.Categorie;
 
@@ -37,13 +38,13 @@ public class CategorieDAOImpl implements CategorieDAO {
 	@Override
 	public void addCategorie(Categorie categorie) {
 		// TODO Auto-generated method stub
-		this.sessionFactory.getCurrentSession().save(categorie);
+		this.sessionFactory.getCurrentSession().saveOrUpdate(categorie);
 	}
 
 	@Override
 	public void updateCategorie(Categorie categorie) {
 		// TODO Auto-generated method stub
-		this.sessionFactory.getCurrentSession().save(categorie);
+		this.sessionFactory.getCurrentSession().saveOrUpdate(categorie);
 	}
 
 	@Override

@@ -1,10 +1,11 @@
-package com.formation.DAO;
+package com.formation.DAO.impl;
 
 import java.util.List;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.formation.DAO.FournisseurDAO;
 import com.formation.entite.Fournisseur;
 
 public class FournisseurDAOImpl implements FournisseurDAO {

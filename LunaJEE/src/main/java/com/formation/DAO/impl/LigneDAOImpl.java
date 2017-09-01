@@ -1,10 +1,11 @@
-package com.formation.DAO;
+package com.formation.DAO.impl;
 
 import java.util.List;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.formation.DAO.LigneDAO;
 import com.formation.entite.Ligne;
 
 public class LigneDAOImpl implements LigneDAO {

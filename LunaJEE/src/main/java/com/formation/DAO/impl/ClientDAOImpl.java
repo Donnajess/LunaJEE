@@ -1,4 +1,4 @@
-package com.formation.DAO;
+package com.formation.DAO.impl;
 
 import java.util.List;
 
@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.formation.DAO.ClientDAO;
 import com.formation.entite.Client;
 
 @Repository("clientDAO")
@@ -38,13 +39,13 @@ public class ClientDAOImpl implements ClientDAO {
 	@Override
 	public void addClient(Client client) {
 		// TODO Auto-generated method stub
-		this.sessionFactory.getCurrentSession().save(client);
+		this.sessionFactory.getCurrentSession().saveOrUpdate(client);
 	}
 
 	@Override
 	public void updateClient(Client client) {
 		// TODO Auto-generated method stub
-		this.sessionFactory.getCurrentSession().save(client);
+		this.sessionFactory.getCurrentSession().saveOrUpdate(client);
 	}
 
 	@Override
