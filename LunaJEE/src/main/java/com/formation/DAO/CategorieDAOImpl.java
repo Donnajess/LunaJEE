@@ -29,7 +29,7 @@ public class CategorieDAOImpl implements CategorieDAO {
 	}
 
 	@Override
-	public Categorie getCategorieById(int code) {
+	public Categorie getCategorieById(long code) {
 		// TODO Auto-generated method stub
 		return this.sessionFactory.getCurrentSession().get(Categorie.class, code);
 	}
@@ -47,7 +47,7 @@ public class CategorieDAOImpl implements CategorieDAO {
 	}
 
 	@Override
-	public void deleteCategorie(int code) {
+	public void deleteCategorie(long code) {
 		// TODO Auto-generated method stub
 		Categorie categorie = sessionFactory.getCurrentSession().get(Categorie.class, code);
 		this.sessionFactory.getCurrentSession().delete(categorie);

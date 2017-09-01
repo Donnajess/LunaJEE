@@ -6,8 +6,8 @@ import com.formation.entite.Categorie;
 
 public interface CategorieDAO {
 	public List<Categorie> getAllCategorie();
-	public Categorie getCategorieById(int code);
+	public Categorie getCategorieById(long code);
 	public void addCategorie(Categorie categorie);
 	public void updateCategorie(Categorie categorie);
-	public void deleteCategorie(int code);
+	public void deleteCategorie(long code);
 }

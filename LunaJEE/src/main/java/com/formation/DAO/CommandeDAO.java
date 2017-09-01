@@ -7,8 +7,8 @@ import com.formation.entite.Commande;
 public interface CommandeDAO {
 	
 	public List<Commande> getAllCommande();
-	public Commande getCommandeById(int code);
+	public Commande getCommandeById(long code);
 	public void addCommande(Commande commande);
 	public void updateCommande(Commande commande);
-	public void deleteCommande(int code);
+	public void deleteCommande(long code);
 }

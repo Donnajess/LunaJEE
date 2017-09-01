@@ -30,7 +30,7 @@ public class ArticleDAOImpl implements ArticleDAO {
 	}
 
 	@Override
-	public Article getArticleById(int code) {
+	public Article getArticleById(long code) {
 		// TODO Auto-generated method stub
 		return this.sessionFactory.getCurrentSession().get(Article.class, code);
 	}
@@ -48,7 +48,7 @@ public class ArticleDAOImpl implements ArticleDAO {
 	}
 
 	@Override
-	public void deleteArticle(int code) {
+	public void deleteArticle(long code) {
 		// TODO Auto-generated method stub
 		Article article = sessionFactory.getCurrentSession().get(Article.class, code);
 		this.sessionFactory.getCurrentSession().delete(article);
