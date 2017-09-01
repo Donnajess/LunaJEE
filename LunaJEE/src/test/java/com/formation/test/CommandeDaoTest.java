@@ -62,7 +62,7 @@ public class CommandeDaoTest {
 		LocalDateTime datetime = LocalDateTime.now();
 		Adresse adresse = new Adresse("rue","code","ville");
 		adresseDAO.addAdresse(adresse);
-		Client client = new Client("test", "test", true, adresse, date);
+		Client client = new Client("test", "test", true, instant, adresse);
 		clientDAO.addClient(client);
 		Categorie categorie = new Categorie("Sport");
 		categorieDAO.addCategorie(categorie);

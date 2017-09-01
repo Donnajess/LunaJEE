@@ -17,22 +17,15 @@ import javax.persistence.OneToOne;
 
 import com.formation.controle.utilitaires.GestionDates;
 
-
 @Entity
 @NamedQueries({
-	
-		@NamedQuery(name = "chercherClient", query = 
-				"SELECT c FROM Client c "
-				+ "WHERE c.code LIKE :recherche "
-				+ "OR c.nom LIKE :recherche "
-				+ "OR c.prenom LIKE :recherche"),
-				
-		@NamedQuery(name = "chercherPrecis", query = 
-				"SELECT c FROM Client c "
-				+ "WHERE c.code LIKE ?1 "
-				+ "AND c.nom LIKE ?2 "
-				+ "AND c.prenom LIKE ?3")
-		
+
+		@NamedQuery(name = "chercherClient", query = "SELECT c FROM Client c " + "WHERE c.code LIKE :recherche "
+				+ "OR c.nom LIKE :recherche " + "OR c.prenom LIKE :recherche"),
+
+		@NamedQuery(name = "chercherPrecis", query = "SELECT c FROM Client c " + "WHERE c.code LIKE ?1 "
+				+ "AND c.nom LIKE ?2 " + "AND c.prenom LIKE ?3")
+
 })
 public class Client implements Serializable {
 
@@ -54,7 +47,7 @@ public class Client implements Serializable {
 
 	private LocalDate date;
 
-	@OneToOne(cascade=CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL)
 	private Adresse adresse;
 
 	// Getters de base
@@ -99,11 +92,11 @@ public class Client implements Serializable {
 	public void setDateCreation(Instant date_creation) {
 		this.date = GestionDates.date(date_creation);
 	}
-	
+
 	public void setAdresse(Adresse adresse) {
 		this.adresse = adresse;
 	}
-	
+
 	public Adresse getAdresse() {
 		return this.adresse;
 	}
@@ -113,15 +106,14 @@ public class Client implements Serializable {
 	// 1er Constructeur
 	// pour la création complète d'un client
 	// limitée ici à 5 propriétés pour alléger le code
-	public Client(Long code, 
-			String nom, String prenom,
-			boolean carteFidelite, Instant creation) {
+	public Client(String nom, String prenom, boolean carteFidelite, Instant creation, Adresse adresse) {
 		this.code = code;
 		this.nom = nom;
 		this.prenom = prenom;
 		carte_fidele = carteFidelite;
 		setDateCreation(creation);
-//		LocalDate.of(date.getYear() +1900, date.getMonth(), date.getDate());
+		setAdresse(adresse);
+		// LocalDate.of(date.getYear() +1900, date.getMonth(), date.getDate());
 	}
 
 	/**
@@ -133,9 +125,8 @@ public class Client implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Client [code=" + this.code + ", nom=" + this.nom + ", prenom="
-				+ this.prenom + ", carte_fidele=" + this.carte_fidele
-				+ ", date=" + this.date + "]";
+		return "Client [code=" + this.code + ", nom=" + this.nom + ", prenom=" + this.prenom + ", carte_fidele="
+				+ this.carte_fidele + ", date=" + this.date + "]";
 	}
 
 	// ------------------------------------
