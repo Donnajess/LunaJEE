@@ -14,15 +14,22 @@
 		<div class="form">
 			<s:form cssClass="centre" theme="css_xhtml">
 				<s:label value="Accueil Commande"></s:label>
-				<s:label></s:label>
-				<s:select value="Client" class="styled-select orange rounded" list="{'Client'}"/>
-				<s:select value="Article" class="styled-select orange rounded" list="{'Article'}"/>
+				</br>
+				<s:select value="Client" class="styled-select orange semi-square"
+					list="{'Client'}" />
+				</br>
+				<s:select  value="Article" class="styled-select orange semi-square"
+					list="{'article'}" />
+				</br>
 				<s:textfield type="text" placeholder="Quantité" />
-				<s:submit value="Ajouter" cssClass="bouton"/>
+				</br>
+				<s:submit value="Ajouter" cssClass="bouton" />
+				</br>
 			</s:form>
 
 			<div class="content">
-				<table align="center" class="userTable" cellpadding="5px" border="1px solid black">
+				<table align="center" class="userTable" cellpadding="5px"
+					border="1px solid black">
 					<tr class="even">
 						<th>Designation Article</th>
 						<th>Quantité</th>
@@ -35,12 +42,14 @@
 							<td><s:property value="designation" /></td>
 							<td><s:property value="quantite" /></td>
 							<td><s:property value="prixttc" /></td>
-							<td> <a href="https://www.w3schools.com">Modifier</a> </td>
-							<td> <a href="https://www.w3schools.com">Supprimer</a> </td>
+							<td><a href="https://www.w3schools.com">Modifier</a></td>
+							<td><a href="https://www.w3schools.com">Supprimer</a></td>
 						</tr>
 					</s:iterator>
 				</table>
 			</div>
+			</br>
+			<s:submit value="Valider la commande" cssClass="bouton" />
 		</div>
 	</div>
 

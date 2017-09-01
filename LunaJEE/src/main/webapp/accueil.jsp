@@ -14,7 +14,7 @@
 		<div class="form">
 			<s:form cssClass="centre" theme="css_xhtml">
 				<s:label value="Accueil"></s:label>
-				<s:label></s:label>
+				</br>
 				<s:submit cssClass="bouton" value="Client" />
 				<s:submit value="Article" cssClass="bouton" />
 				<s:submit value="Commande" cssClass="bouton" />
