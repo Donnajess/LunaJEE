@@ -12,13 +12,13 @@
 <body>
 	<div class="login-page">
 		<div class="form">
-			<s:form cssClass="centre" theme="css_xhtml">
+			<s:form cssClass="centre" theme="css_xhtml" action="addArticle">
 				<s:label value="Accueil Article"></s:label>
 				<s:label></s:label>
-				<s:textfield type="text" placeholder="Designation" />
-				<s:textfield type="password" placeholder="Quantité" />
-				<s:textfield type="text" placeholder="Prix Unitaire" />
-				<s:textfield type="text" placeholder="Categorie" />
+				<s:textfield type="text" placeholder="Designation" name="designation"/>
+				<s:textfield type="text" placeholder="Quantité" name="quantite" />
+				<s:textfield type="text" placeholder="Prix Unitaire" name="prixUnitaire" />
+				<s:textfield type="text" placeholder="Catégorie" name="categorie" />
 				<s:select value="Categorie" class="styled-select green rounded" list="{'Jouet'}"/>
 				<s:submit value="Créer" cssClass="bouton" />
 			</s:form>
@@ -30,16 +30,17 @@
 						<th>Categorie</th>
 						<th>Quantité</th>
 						<th>Prix_Unitaire</th>
-						<th>Modifier</th>
-						<th>Supprimer</th>
+						<th></th>
+						<th></th>
 					</tr>
-					<s:iterator value="articleList">
+					<s:iterator value="listArticles">
 						<tr>
 							<td><s:property value="designation" /></td>
 							<td><s:property value="categorie" /></td>
 							<td><s:property value="quantite" /></td>
 							<td><s:property value="prixUnitaire" /></td>
-							<td><s:property value="mail" /></td>
+							<td><s:a action="">Modifier</s:a></td>
+							<td><s:a action="deleteArticle">Supprimer</s:a></td>
 						</tr>
 					</s:iterator>
 				</table>

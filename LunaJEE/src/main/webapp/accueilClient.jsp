@@ -16,7 +16,7 @@
 				<s:label value="Accueil Client"></s:label>
 				<s:label></s:label>
 				<s:textfield type="text" placeholder="Nom" name="nom" />
-				<s:textfield type="password" placeholder="Prénom" name="prenom" />
+				<s:textfield type="text" placeholder="Prénom" name="prenom" />
 				<s:checkbox name="carte_fidele" label="Souhaitez vous une carte de fidélité ?" />
 				<s:submit value="Créer" cssClass="bouton" />
 			</s:form>
