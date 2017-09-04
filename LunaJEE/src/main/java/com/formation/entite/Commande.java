@@ -24,19 +24,6 @@ import com.formation.controle.utilitaires.GestionDates;
 
 
 @Entity
-@NamedQuery(name = "chercherCommande", query = 
-		"SELECT com FROM Commande com, "
-		+ "Client cli, "
-		+ "ModeReglements mode "
-		+ "WHERE com.modeReglement.code = mode.code "
-		+ "AND com.client.code = cli.code "
-		+ "AND ("
-			+ "com.code LIKE :recherche "
-			+ "OR cli.nom LIKE :recherche "
-			+ "OR cli.prenom LIKE :recherche "
-			+ "OR mode.type LIKE :recherche"
-		+ ")"
-)
 public class Commande implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -48,9 +35,7 @@ public class Commande implements Serializable {
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Client client;
 
-	@ManyToOne
-	@JoinColumn(name = "mode_reglement_code")
-	private ModeReglements modeReglement;
+	private String modeReglement;
 
 	@Convert(converter=ConvertisseurLocalDateTime.class)
 	private LocalDateTime date;
@@ -73,7 +58,7 @@ public class Commande implements Serializable {
 		super();
 	}
 	
-	public Commande(Client client, ModeReglements modeReglement, LocalDateTime date, List<Ligne> lignes) {
+	public Commande(Client client, String modeReglement, LocalDateTime date, List<Ligne> lignes) {
 		super();
 		this.client = client;
 		this.modeReglement = modeReglement;
@@ -104,7 +89,7 @@ public class Commande implements Serializable {
 				.sum();
 	}
 
-	public ModeReglements getReglement() {
+	public String getReglement() {
 		return modeReglement;
 	}
 
@@ -116,7 +101,7 @@ public class Commande implements Serializable {
 		this.client = client;
 	}
 
-	public void setReglement(ModeReglements leReglement) {
+	public void setReglement(String leReglement) {
 		this.modeReglement = leReglement;
 	}
 
@@ -132,6 +117,7 @@ public class Commande implements Serializable {
 	public List<Ligne> getLignes() {
 		return lignes;
 	}
+	
 
 	public void ajouter(Ligne uneLigne) {
 		uneLigne.setCommande(this);

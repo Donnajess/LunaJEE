@@ -7,9 +7,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
-
-@Entity(name="LignesCommandes")
+@Entity(name = "LignesCommandes")
 public class Ligne implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -18,13 +18,27 @@ public class Ligne implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@ManyToOne(optional=false)
+	@ManyToOne(optional = false)
 	private Article article;
 
-	@ManyToOne(optional=false)
+	@ManyToOne(optional = false)
 	private Commande commande;
 
 	private int quantite;
+
+	@Transient
+	private double prix;
+
+	@Transient
+	private int identifiant;
+
+	public int getIdentifiant() {
+		return identifiant;
+	}
+
+	public void setIdentifiant(int identifiant) {
+		this.identifiant = identifiant;
+	}
 
 	/*
 	 * Constructeur 1
@@ -67,7 +81,15 @@ public class Ligne implements Serializable {
 		return commande;
 	}
 
-	void setCommande(Commande commande) {
+	public void setCommande(Commande commande) {
 		this.commande = commande;
+	}
+
+	public double getPrix() {
+		return prix;
+	}
+
+	public void setPrix(double prix) {
+		this.prix = prix;
 	}
 }

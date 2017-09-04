@@ -22,7 +22,7 @@
 				method="post">
 				<s:submit name="Valider" value="Article" cssClass="bouton" />
 			</s:form>
-			<s:form cssClass="centre" theme="css_xhtml" action="commande"
+			<s:form cssClass="centre" theme="css_xhtml" action="listCommande"
 				method="post">
 				<s:submit name="Valider" value="Commande" cssClass="bouton" />
 			</s:form>
