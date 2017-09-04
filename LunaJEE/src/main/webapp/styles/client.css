@@ -8,7 +8,6 @@
 
 .form {
 	z-index: 1;
-	position:fixed;
 	background: #FFFFFF;
 	max-width: 600px;
 	margin: 0 auto 100px;
@@ -69,12 +68,6 @@
 	margin: 0 auto;
 }
 
-.container:before, .container:after {
-	content: "";
-	display: block;
-	clear: both;
-}
-
 .container .info {
 	margin: 50px auto;
 	text-align: center;
@@ -111,5 +104,5 @@ body {
 	font-family: "Roboto", sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	overflow: hidden;
+	overflow: auto;
 }

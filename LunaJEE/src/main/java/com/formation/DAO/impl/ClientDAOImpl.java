@@ -45,7 +45,7 @@ public class ClientDAOImpl implements ClientDAO {
 	@Override
 	public void updateClient(Client client) {
 		// TODO Auto-generated method stub
-		this.sessionFactory.getCurrentSession().saveOrUpdate(client);
+		this.sessionFactory.getCurrentSession().update(client);
 	}
 
 	@Override

@@ -15,9 +15,13 @@
 			<s:form cssClass="centre" theme="css_xhtml" action="addClient">
 				<s:label value="Accueil Client"></s:label>
 				<s:label></s:label>
-				<s:textfield type="text" placeholder="Nom" name="nom" />
-				<s:textfield type="password" placeholder="Prénom" name="prenom" />
-				<s:checkbox name="carte_fidele" label="Souhaitez vous une carte de fidélité ?" />
+				<s:textfield type="text" placeholder="Nom" name="client.nom" />
+				<s:textfield type="text" placeholder="Prénom" name="client.prenom" />
+				<s:label>"Souhaitez vous une carte de fidélité ?"</s:label>
+				<s:checkbox name="client.carte_fidele" fieldValue="true" />
+				<s:textfield type="text" placeholder="Rue" name="adresse.rue" />
+				<s:textfield type="text" placeholder="Code" name="adresse.codePostal" />
+				<s:textfield type="text" placeholder="Ville" name="adresse.ville" />
 				<s:submit value="Créer" cssClass="bouton" />
 			</s:form>
 
@@ -27,7 +31,8 @@
 					<tr class="even">
 						<th>Nom</th>
 						<th>Prenom</th>
-						<th>Carte Fidelité</th>
+						<th>carte_fidelite</th>
+						<th>Ville</th>
 						<th>Modifier</th>
 						<th>Supprimer</th>
 					</tr>
@@ -36,8 +41,9 @@
 							<td><s:property value="nom" /></td>
 							<td><s:property value="prenom" /></td>
 							<td><s:property value="carte_fidele" /></td>
-							<td><a href="https://www.w3schools.com">Modifier</a></td>
-							<td><s:a action="deleteClient_code">Supprimer</s:a></td>
+							<td><s:property value="adresse.ville" /></td>
+							<td><s:a action="updateClient?code=%{code}">Modifier</s:a></td>
+							<td><s:a action="deleteClient?code=%{code}">Suppression</s:a></td>
 						</tr>
 					</s:iterator>
 				</table>

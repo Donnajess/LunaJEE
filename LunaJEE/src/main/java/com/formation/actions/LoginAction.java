@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.formation.DAO.UserDAO;
 import com.formation.entite.User;
+import com.formation.services.UserService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -24,14 +25,14 @@ public class LoginAction extends ActionSupport  implements ModelDriven<User> {
 	private User user;
 
 	@Autowired
-	private UserDAO userDAO;
+	private UserService userService;
 
-	public UserDAO getUserDAO() {
-		return userDAO;
+	public UserService getUserDAO() {
+		return userService;
 	}
 
-	public void setUserDAO(UserDAO userDAO) {
-		this.userDAO = userDAO;
+	public void setUserService(UserService userService) {
+		this.userService = userService;
 	}
 
 	public User getUser() {
@@ -44,7 +45,7 @@ public class LoginAction extends ActionSupport  implements ModelDriven<User> {
 	
 	@Override
 	public String execute() throws Exception {
-		List<User> users = userDAO.getAllUser();
+		List<User> users = userService.getAllUser();
 		for (User u : users) {
 			if(u.getUsername().equals(user.getUsername()) && (u.getMdp().equals(user.getMdp()))){
 				return SUCCESS;

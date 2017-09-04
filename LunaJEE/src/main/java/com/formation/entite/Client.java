@@ -44,6 +44,15 @@ public class Client implements Serializable {
 	private String prenom;
 
 	private boolean carte_fidele;
+	
+
+	public boolean isCarte_fidele() {
+		return carte_fidele;
+	}
+
+	public void setCarte_fidele(boolean carte_fidele) {
+		this.carte_fidele = carte_fidele;
+	}
 
 	private LocalDate date;
 
@@ -64,10 +73,6 @@ public class Client implements Serializable {
 		return prenom;
 	}
 
-	public boolean isCarteFidele() {
-		return carte_fidele;
-	}
-
 	public Instant getDateCreation() {
 		return GestionDates.instant(date);
 	}
@@ -85,9 +90,6 @@ public class Client implements Serializable {
 		this.prenom = prenom;
 	}
 
-	public void setCarteFidele(boolean carte_fidele) {
-		this.carte_fidele = carte_fidele;
-	}
 
 	public void setDateCreation(Instant date_creation) {
 		this.date = GestionDates.date(date_creation);
@@ -136,5 +138,5 @@ public class Client implements Serializable {
 	public Date getCreation() {
 		return Date.from(getDateCreation());
 	}
-	// ------------------------------------
+
 }

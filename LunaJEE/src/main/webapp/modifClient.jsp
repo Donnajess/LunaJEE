@@ -12,14 +12,14 @@
 <body>
 	<div class="login-page">
 		<div class="form">
-			<s:form cssClass="centre" theme="css_xhtml">
+			<s:form cssClass="centre" theme="css_xhtml" action="majClient">
 				<s:label value="Modification Client"></s:label>
 				<s:label></s:label>
-				<s:textfield type="text" placeholder="Nom" />
-				<s:textfield type="password" placeholder="Prénom" />
-				<s:textfield type="text" placeholder="Rue" />
-				<s:textfield type="text" placeholder="Code Postal" />
-				<s:textfield type="text" placeholder="Ville" />
+				<s:textfield type="text" placeholder="Nom" value="%{client.nom}" name="client.nom"/>
+				<s:textfield type="text" placeholder="Prénom" value="%{client.prenom}" name="client.prenom"/>
+				<s:textfield type="text" placeholder="Rue" value="%{client.adresse.rue}" name="adresse.rue"/>
+				<s:textfield type="text" placeholder="Code Postal" value="%{client.adresse.codePostal}" name="adresse.codePostal"/>
+				<s:textfield type="text" placeholder="Ville" value="%{client.adresse.ville}" name="adresse.ville"/>
 				<s:submit cssClass="bouton" value="Modifier" />
 			</s:form>
 		</div>
