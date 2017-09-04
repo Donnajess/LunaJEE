@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\SDJ05\git\LunaJEE\LunaJEE\src\main\java\com\formation\actions\AccueilArticleAction.java
 C:\Users\SDJ05\git\LunaJEE\LunaJEE\src\main\java\com\formation\controle\utilitaires\ConvertisseurLocalDateTime.java
 C:\Users\SDJ05\git\LunaJEE\LunaJEE\src\main\java\com\formation\DAO\impl\ArticleDAOImpl.java
@@ -32,3 +33,38 @@ C:\Users\SDJ05\git\LunaJEE\LunaJEE\src\main\java\com\formation\entite\Categorie.
 C:\Users\SDJ05\git\LunaJEE\LunaJEE\src\main\java\com\formation\DAO\UserDAO.java
 C:\Users\SDJ05\git\LunaJEE\LunaJEE\src\main\java\com\formation\DAO\ModeReglementDAO.java
 C:\Users\SDJ05\git\LunaJEE\LunaJEE\src\main\java\com\formation\entite\Client.java
+=======
+C:\Users\JeanYvesLafesse\git\LunaJEE\LunaJEE\src\main\java\com\formation\controle\utilitaires\ConvertisseurLocalDateTime.java
+C:\Users\JeanYvesLafesse\git\LunaJEE\LunaJEE\src\main\java\com\formation\DAO\LigneDAO.java
+C:\Users\JeanYvesLafesse\git\LunaJEE\LunaJEE\src\main\java\com\formation\entite\Categorie.java
+C:\Users\JeanYvesLafesse\git\LunaJEE\LunaJEE\src\main\java\com\formation\actions\ListClientAction.java
+C:\Users\JeanYvesLafesse\git\LunaJEE\LunaJEE\src\main\java\com\formation\entite\Ligne.java
+C:\Users\JeanYvesLafesse\git\LunaJEE\LunaJEE\src\main\java\com\formation\actions\AccueilCommandeAction.java
+C:\Users\JeanYvesLafesse\git\LunaJEE\LunaJEE\src\main\java\com\formation\entite\ModeReglements.java
+C:\Users\JeanYvesLafesse\git\LunaJEE\LunaJEE\src\main\java\com\formation\DAO\AdresseDAO.java
+C:\Users\JeanYvesLafesse\git\LunaJEE\LunaJEE\src\main\java\com\formation\entite\Adresse.java
+C:\Users\JeanYvesLafesse\git\LunaJEE\LunaJEE\src\main\java\com\formation\DAO\ModeReglementDAO.java
+C:\Users\JeanYvesLafesse\git\LunaJEE\LunaJEE\src\main\java\com\formation\controle\utilitaires\GestionDates.java
+C:\Users\JeanYvesLafesse\git\LunaJEE\LunaJEE\src\main\java\com\formation\DAO\FournisseurDAO.java
+C:\Users\JeanYvesLafesse\git\LunaJEE\LunaJEE\src\main\java\com\formation\DAO\impl\CategorieDAOImpl.java
+C:\Users\JeanYvesLafesse\git\LunaJEE\LunaJEE\src\main\java\com\formation\entite\Client.java
+C:\Users\JeanYvesLafesse\git\LunaJEE\LunaJEE\src\main\java\com\formation\entite\User.java
+C:\Users\JeanYvesLafesse\git\LunaJEE\LunaJEE\src\main\java\com\formation\DAO\impl\ClientDAOImpl.java
+C:\Users\JeanYvesLafesse\git\LunaJEE\LunaJEE\src\main\java\com\formation\entite\Article.java
+C:\Users\JeanYvesLafesse\git\LunaJEE\LunaJEE\src\main\java\com\formation\entite\Commande.java
+C:\Users\JeanYvesLafesse\git\LunaJEE\LunaJEE\src\main\java\com\formation\DAO\impl\ArticleDAOImpl.java
+C:\Users\JeanYvesLafesse\git\LunaJEE\LunaJEE\src\main\java\com\formation\actions\LoginAction.java
+C:\Users\JeanYvesLafesse\git\LunaJEE\LunaJEE\src\main\java\com\formation\DAO\CommandeDAO.java
+C:\Users\JeanYvesLafesse\git\LunaJEE\LunaJEE\src\main\java\com\formation\DAO\impl\CommandeDAOImpl.java
+C:\Users\JeanYvesLafesse\git\LunaJEE\LunaJEE\src\main\java\com\formation\DAO\CategorieDAO.java
+C:\Users\JeanYvesLafesse\git\LunaJEE\LunaJEE\src\main\java\com\formation\entite\Fournisseur.java
+C:\Users\JeanYvesLafesse\git\LunaJEE\LunaJEE\src\main\java\com\formation\DAO\impl\AdresseDAOImpl.java
+C:\Users\JeanYvesLafesse\git\LunaJEE\LunaJEE\src\main\java\com\formation\DAO\impl\UserDAOImpl.java
+C:\Users\JeanYvesLafesse\git\LunaJEE\LunaJEE\src\main\java\com\formation\DAO\ClientDAO.java
+C:\Users\JeanYvesLafesse\git\LunaJEE\LunaJEE\src\main\java\com\formation\DAO\impl\ModeReglementDAOImpl.java
+C:\Users\JeanYvesLafesse\git\LunaJEE\LunaJEE\src\main\java\com\formation\DAO\UserDAO.java
+C:\Users\JeanYvesLafesse\git\LunaJEE\LunaJEE\src\main\java\com\formation\actions\AccueilArticleAction.java
+C:\Users\JeanYvesLafesse\git\LunaJEE\LunaJEE\src\main\java\com\formation\DAO\ArticleDAO.java
+C:\Users\JeanYvesLafesse\git\LunaJEE\LunaJEE\src\main\java\com\formation\DAO\impl\FournisseurDAOImpl.java
+C:\Users\JeanYvesLafesse\git\LunaJEE\LunaJEE\src\main\java\com\formation\DAO\impl\LigneDAOImpl.java
+>>>>>>> branch 'master' of https://github.com/Donnajess/LunaJEE.git
