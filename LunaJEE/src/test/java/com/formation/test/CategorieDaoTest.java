@@ -29,7 +29,7 @@ public class CategorieDaoTest {
 	public void test1AddCategorie() {
 		Categorie cat = new Categorie("Electromenager");
 		categorieDAO.addCategorie(cat);
-		Assert.assertEquals(1, categorieDAO.getAllCategorie().size());
+		Assert.assertEquals(5, categorieDAO.getAllCategorie().size());
 	}
 
 	@Test

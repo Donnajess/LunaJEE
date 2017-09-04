@@ -38,5 +38,6 @@
 			class="com.formation.actions.ListArticleAction">
 			<result name="success" type="redirectAction">listArticle</result>
 		</action>
+
 	</package>
 </struts>

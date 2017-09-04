@@ -12,13 +12,13 @@
 <body>
 	<div class="login-page">
 		<div class="form">
-			<s:form cssClass="centre" theme="css_xhtml">
+			<s:form cssClass="centre" theme="css_xhtml" action="majArticle">
 				<s:label value="Modification Article"></s:label>
 				<s:label></s:label>
-				<s:textfield type="text" placeholder="Designation" />
-				<s:textfield type="password" placeholder="Quantité" />
-				<s:textfield type="text" placeholder="Prix Unitaire" />
-				<s:select value="Categorie" class="styled-select green rounded" list="{'Jouet'}"/>
+				<s:textfield type="text" placeholder="Designation" name="article.designation"/>
+				<s:textfield type="text" placeholder="Quantité" name="article.quantite" />
+				<s:textfield type="text" placeholder="Prix Unitaire" name="article.prixUnitaire" />
+				<s:select list="listCategories" class="styled-select green rounded" listValue="designation" name="cat" listKey="code" />
 				<s:submit value="Modifier" cssClass="bouton" />
 			</s:form>
 		</div>
