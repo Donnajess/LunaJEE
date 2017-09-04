@@ -27,7 +27,7 @@
 							<td><s:property value="designation" /></td>
 							<td><s:property value="prixTTC" /></td>
 							<td><s:property value="modeReglement" /></td>
-							<td><a href="https://www.w3schools.com">Supprimer</a></td>
+							<td><s:a action="deleteCommande?code=%{code}">Supprimer</s:a></td>
 						</tr>
 					</s:iterator>
 				</table>

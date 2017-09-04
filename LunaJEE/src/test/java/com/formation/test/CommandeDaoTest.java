@@ -21,14 +21,12 @@ import com.formation.DAO.CategorieDAO;
 import com.formation.DAO.ClientDAO;
 import com.formation.DAO.CommandeDAO;
 import com.formation.DAO.LigneDAO;
-import com.formation.DAO.ModeReglementDAO;
 import com.formation.entite.Adresse;
 import com.formation.entite.Article;
 import com.formation.entite.Categorie;
 import com.formation.entite.Client;
 import com.formation.entite.Commande;
 import com.formation.entite.Ligne;
-import com.formation.entite.ModeReglements;
 
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -38,7 +36,6 @@ public class CommandeDaoTest {
 	private static ArticleDAO articleDAO;
 	private static CategorieDAO categorieDAO;
 	private static ClientDAO clientDAO;
-	private static ModeReglementDAO modeReglementDAO;
 	private static AdresseDAO adresseDAO;
 	private static LigneDAO ligneDAO;
 
@@ -49,7 +46,6 @@ public class CommandeDaoTest {
 		articleDAO = (ArticleDAO) context.getBean("articleDAO");
 		categorieDAO = (CategorieDAO) context.getBean("categorieDAO");
 		clientDAO = (ClientDAO) context.getBean("clientDAO");
-		modeReglementDAO = (ModeReglementDAO) context.getBean("modeReglementDAO");
 		adresseDAO = (AdresseDAO) context.getBean("adresseDAO");
 		ligneDAO = (LigneDAO) context.getBean("ligneDAO");
 	}
@@ -68,13 +64,10 @@ public class CommandeDaoTest {
 		categorieDAO.addCategorie(categorie);
 		Article article = new Article(categorie, "Ballon foot", 15, 14.99, instant);
 		articleDAO.addArticle(article);
-		ModeReglements modeReglement = new ModeReglements("CB");
-		modeReglementDAO.addModeReglement(modeReglement);
 		List<Ligne> listLignes = new ArrayList<Ligne>(); 
+		Commande commande = new Commande(client,"cheques", datetime, listLignes);
 		Ligne ligne = new Ligne(article, 15);
-		listLignes.add(ligne);
-		ligneDAO.addLigne(ligne);
-		Commande commande = new Commande(client,modeReglement, datetime, listLignes);
+		commande.ajouter(ligne);
 		commandeDAO.addCommande(commande);
 		Assert.assertEquals(1, commandeDAO.getAllCommande().size());
 	}

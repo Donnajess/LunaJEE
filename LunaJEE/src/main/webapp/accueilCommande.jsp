@@ -12,16 +12,17 @@
 <body>
 	<div class="login-page">
 		<div class="form">
-			<s:form cssClass="centre" theme="css_xhtml">
+			<s:form cssClass="centre" theme="css_xhtml" action="addLigne">
 				<s:label value="Accueil Commande"></s:label>
 				</br>
 				<s:select value="Client" class="styled-select orange semi-square"
-					list="{'Client'}" />
+					list="listClient" listValue="nom" listKey="code" name="client" />
 				</br>
-				<s:select  value="Article" class="styled-select orange semi-square"
-					list="{'article'}" />
+				<s:select value="Article" class="styled-select orange semi-square"
+					list="listArticle" listValue="designation" listKey="code"
+					name="article" />
 				</br>
-				<s:textfield type="text" placeholder="Quantité" />
+				<s:textfield type="text" placeholder="Quantité" name="quantite" />
 				</br>
 				<s:submit value="Ajouter" cssClass="bouton" />
 				</br>
@@ -34,22 +35,26 @@
 						<th>Designation Article</th>
 						<th>Quantité</th>
 						<th>Prix</th>
-						<th>Modifier</th>
 						<th>Supprimer</th>
 					</tr>
 					<s:iterator value="commandeList">
 						<tr>
-							<td><s:property value="designation" /></td>
+							<td><s:property value="article.designation" /></td>
 							<td><s:property value="quantite" /></td>
-							<td><s:property value="prixttc" /></td>
-							<td><a href="https://www.w3schools.com">Modifier</a></td>
-							<td><a href="https://www.w3schools.com">Supprimer</a></td>
+							<td><s:property value="prix" /></td>
+							<td><s:a action="deleteLigne?identifiant=%{identifiant}">Supprimer</s:a></td>
 						</tr>
 					</s:iterator>
 				</table>
 			</div>
 			</br>
-			<s:submit value="Valider la commande" cssClass="bouton" />
+			<s:label value="Montant de la commande :" />
+			<s:property value="montant" />
+			<s:label value=" euros" />
+			</br>
+			<s:form action="validerCommande">
+				<s:submit value="Valider la commande" cssClass="bouton" />
+			</s:form>
 		</div>
 	</div>
 
