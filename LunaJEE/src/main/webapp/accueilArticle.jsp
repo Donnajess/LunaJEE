@@ -18,8 +18,7 @@
 				<s:textfield type="text" placeholder="Designation" name="designation"/>
 				<s:textfield type="text" placeholder="Quantité" name="quantite" />
 				<s:textfield type="text" placeholder="Prix Unitaire" name="prixUnitaire" />
-				<s:textfield type="text" placeholder="Catégorie" name="categorie" />
-				<s:select value="Categorie" class="styled-select green rounded" list="{'Jouet'}"/>
+				<s:select list="listCategories" class="styled-select green rounded" listValue="designation"/>
 				<s:submit value="Créer" cssClass="bouton" />
 			</s:form>
 
@@ -36,11 +35,11 @@
 					<s:iterator value="listArticles">
 						<tr>
 							<td><s:property value="designation" /></td>
-							<td><s:property value="categorie" /></td>
+							<td><s:property value="categorie.designation" /></td>
 							<td><s:property value="quantite" /></td>
 							<td><s:property value="prixUnitaire" /></td>
 							<td><s:a action="">Modifier</s:a></td>
-							<td><s:a action="deleteArticle">Supprimer</s:a></td>
+							<td><s:a action="deleteArticle?code=%{code}">Supprimer</s:a></td>
 						</tr>
 					</s:iterator>
 				</table>
