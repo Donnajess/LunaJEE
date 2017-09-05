@@ -3,6 +3,7 @@ package com.formation.entite;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class User {
@@ -13,9 +14,9 @@ public class User {
 		@Id
 		@GeneratedValue
 		private Long id;
-
+		@NotEmpty(message="Please enter an username")
 		private String username;
-
+		@NotEmpty(message="Please enter a password")
 		private String mdp;
 
 		public Long getId() {

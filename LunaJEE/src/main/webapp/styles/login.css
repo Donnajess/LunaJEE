@@ -8,8 +8,15 @@
 }
 .centre
 {
-text-align :center;
+	text-align :center;
 }
+.errorMessage {
+  font-style: italic;
+  font-size: 11px;
+  color: red;
+  margin-bottom: 5px;
+}
+
 .form {
   position: relative;
   z-index: 1;
