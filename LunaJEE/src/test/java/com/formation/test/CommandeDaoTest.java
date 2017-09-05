@@ -1,9 +1,7 @@
 package com.formation.test;
 
 import java.time.Instant;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +18,6 @@ import com.formation.DAO.ArticleDAO;
 import com.formation.DAO.CategorieDAO;
 import com.formation.DAO.ClientDAO;
 import com.formation.DAO.CommandeDAO;
-import com.formation.DAO.LigneDAO;
 import com.formation.entite.Adresse;
 import com.formation.entite.Article;
 import com.formation.entite.Categorie;
@@ -37,7 +34,6 @@ public class CommandeDaoTest {
 	private static CategorieDAO categorieDAO;
 	private static ClientDAO clientDAO;
 	private static AdresseDAO adresseDAO;
-	private static LigneDAO ligneDAO;
 
 	@BeforeClass
 	public static void oneTimeSetUp() {
@@ -47,13 +43,11 @@ public class CommandeDaoTest {
 		categorieDAO = (CategorieDAO) context.getBean("categorieDAO");
 		clientDAO = (ClientDAO) context.getBean("clientDAO");
 		adresseDAO = (AdresseDAO) context.getBean("adresseDAO");
-		ligneDAO = (LigneDAO) context.getBean("ligneDAO");
 	}
 	
 	
 	@Test
 	public void test1AddCommande() {
-		LocalDate date = LocalDate.now();
 		Instant instant = Instant.now();
 		LocalDateTime datetime = LocalDateTime.now();
 		Adresse adresse = new Adresse("rue","code","ville");

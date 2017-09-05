@@ -9,7 +9,6 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -31,9 +30,6 @@ public class Client implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	// Propriétés de base de la classe
-	// -------------------------------
-	// l'identifiant en base de données
 	@Id
 	@GeneratedValue
 	private Long code;
@@ -59,8 +55,6 @@ public class Client implements Serializable {
 	@OneToOne(cascade = CascadeType.ALL)
 	private Adresse adresse;
 
-	// Getters de base
-	// ---------------
 	public Long getCode() {
 		return code;
 	}
@@ -103,24 +97,14 @@ public class Client implements Serializable {
 		return this.adresse;
 	}
 
-	// CONSTRUCTEURS
-	// -------------
-	// 1er Constructeur
-	// pour la création complète d'un client
-	// limitée ici à 5 propriétés pour alléger le code
 	public Client(String nom, String prenom, boolean carteFidelite, Instant creation, Adresse adresse) {
-		this.code = code;
 		this.nom = nom;
 		this.prenom = prenom;
 		carte_fidele = carteFidelite;
 		setDateCreation(creation);
 		setAdresse(adresse);
-		// LocalDate.of(date.getYear() +1900, date.getMonth(), date.getDate());
 	}
 
-	/**
-	 * Utilisé par JPA.
-	 */
 	public Client() {
 		super();
 	}
@@ -131,9 +115,6 @@ public class Client implements Serializable {
 				+ this.carte_fidele + ", date=" + this.date + "]";
 	}
 
-	// ------------------------------------
-	// Méthodes utilisées par Jasper
-	// ------------------------------------
 	@Deprecated
 	public Date getCreation() {
 		return Date.from(getDateCreation());

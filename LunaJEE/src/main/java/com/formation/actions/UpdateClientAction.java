@@ -44,7 +44,6 @@ public class UpdateClientAction extends ActionSupport implements ModelDriven<Cli
 
 	@Override
 	public Client getModel() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

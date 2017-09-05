@@ -9,8 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.formation.DAO.UserDAO;
-import com.formation.entite.Adresse;
-import com.formation.entite.Client;
 import com.formation.entite.User;
 
 @Repository("userDAO")
@@ -37,13 +35,11 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public void addUser(User user) {
-		// TODO Auto-generated method stub
 		this.sessionFactory.getCurrentSession().saveOrUpdate(user);
 	}
 
 	@Override
 	public void updateUser(User user) {
-		// TODO Auto-generated method stub
 		this.sessionFactory.getCurrentSession().saveOrUpdate(user);
 
 	}

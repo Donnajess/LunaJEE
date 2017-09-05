@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.formation.DAO.CategorieDAO;
-import com.formation.entite.Article;
 import com.formation.entite.Categorie;
 
 @Repository("categorieDAO")
@@ -31,25 +30,21 @@ public class CategorieDAOImpl implements CategorieDAO {
 
 	@Override
 	public Categorie getCategorieById(long code) {
-		// TODO Auto-generated method stub
 		return this.sessionFactory.getCurrentSession().get(Categorie.class, code);
 	}
 
 	@Override
 	public void addCategorie(Categorie categorie) {
-		// TODO Auto-generated method stub
 		this.sessionFactory.getCurrentSession().save(categorie);
 	}
 
 	@Override
 	public void updateCategorie(Categorie categorie) {
-		// TODO Auto-generated method stub
 		this.sessionFactory.getCurrentSession().saveOrUpdate(categorie);
 	}
 
 	@Override
 	public void deleteCategorie(long code) {
-		// TODO Auto-generated method stub
 		Categorie categorie = sessionFactory.getCurrentSession().get(Categorie.class, code);
 		this.sessionFactory.getCurrentSession().delete(categorie);
 	}

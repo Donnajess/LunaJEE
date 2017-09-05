@@ -10,9 +10,7 @@ import org.junit.runners.MethodSorters;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.formation.DAO.AdresseDAO;
 import com.formation.DAO.UserDAO;
-import com.formation.entite.Adresse;
 import com.formation.entite.User;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)

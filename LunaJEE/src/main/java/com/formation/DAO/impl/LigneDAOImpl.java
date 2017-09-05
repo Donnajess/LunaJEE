@@ -26,31 +26,26 @@ public class LigneDAOImpl implements LigneDAO {
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<Ligne> getAllLigne() {
-		// TODO Auto-generated method stub
 		return this.sessionFactory.getCurrentSession().createQuery("from Ligne").list();
 	}
 
 	@Override
 	public Ligne getLigneById(long id) {
-		// TODO Auto-generated method stub
 		return this.sessionFactory.getCurrentSession().get(Ligne.class, id);
 	}
 
 	@Override
 	public void addLigne(Ligne ligne) {
-		// TODO Auto-generated method stub
 		this.sessionFactory.getCurrentSession().save(ligne);
 	}
 
 	@Override
 	public void updateLigne(Ligne ligne) {
-		// TODO Auto-generated method stub
 		this.sessionFactory.getCurrentSession().save(ligne);
 	}
 
 	@Override
 	public void deleteLigne(long id) {
-		// TODO Auto-generated method stub
 		Ligne ligne = sessionFactory.getCurrentSession().get(Ligne.class, id);
 		this.sessionFactory.getCurrentSession().delete(ligne);
 	}

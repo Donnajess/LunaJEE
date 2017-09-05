@@ -76,7 +76,6 @@ public class UpdateArticleAction extends ActionSupport implements ModelDriven<Ar
 
 	@Override
 	public Article getModel() {
-		// TODO Auto-generated method stub
 		return article;
 	}
 

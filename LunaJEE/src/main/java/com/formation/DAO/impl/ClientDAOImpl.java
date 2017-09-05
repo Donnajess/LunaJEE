@@ -15,7 +15,6 @@ import com.formation.entite.Client;
 @Transactional
 public class ClientDAOImpl implements ClientDAO {
 
-	/* sessionFactory est injecté avec @Autowired, on ajoute son Setter */
 	@Autowired  
 	private SessionFactory sessionFactory;
 	
@@ -26,31 +25,26 @@ public class ClientDAOImpl implements ClientDAO {
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<Client> getAllClient() {
-		// TODO Auto-generated method stub
 		return this.sessionFactory.getCurrentSession().createQuery("from Client").list();
 	}
 
 	@Override
 	public Client getClientById(long code) {
-		// TODO Auto-generated method stub
 		return this.sessionFactory.getCurrentSession().get(Client.class, code);
 	}
 
 	@Override
 	public void addClient(Client client) {
-		// TODO Auto-generated method stub
 		this.sessionFactory.getCurrentSession().save(client);
 	}
 
 	@Override
 	public void updateClient(Client client) {
-		// TODO Auto-generated method stub
 		this.sessionFactory.getCurrentSession().update(client);
 	}
 
 	@Override
 	public void deleteClient(long code) {
-		// TODO Auto-generated method stub
 		Client client = sessionFactory.getCurrentSession().get(Client.class, code);
 		this.sessionFactory.getCurrentSession().delete(client);
 	}

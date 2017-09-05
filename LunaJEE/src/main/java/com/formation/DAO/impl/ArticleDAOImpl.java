@@ -14,8 +14,7 @@ import com.formation.entite.Article;
 @Repository("articleDAO")
 @Transactional
 public class ArticleDAOImpl implements ArticleDAO {
-
-	/* sessionFactory est injecté avec @Autowired, on ajoute son Setter */
+	
 	@Autowired  
 	private SessionFactory sessionFactory;
 	
@@ -26,31 +25,26 @@ public class ArticleDAOImpl implements ArticleDAO {
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<Article> getAllArticles() {
-		// TODO Auto-generated method stub
 		return this.sessionFactory.getCurrentSession().createQuery("from Article").list();
 	}
 
 	@Override
 	public Article getArticleById(long code) {
-		// TODO Auto-generated method stub
 		return this.sessionFactory.getCurrentSession().get(Article.class, code);
 	}
 
 	@Override
 	public void addArticle(Article article) {
-		// TODO Auto-generated method stub
 		this.sessionFactory.getCurrentSession().saveOrUpdate(article);
 	}
 
 	@Override
 	public void updateArticle(Article article) {
-		// TODO Auto-generated method stub
 		this.sessionFactory.getCurrentSession().saveOrUpdate(article);
 	}
 
 	@Override
 	public void deleteArticle(long code) {
-		// TODO Auto-generated method stub
 		Article article = sessionFactory.getCurrentSession().get(Article.class, code);
 		this.sessionFactory.getCurrentSession().delete(article);
 	}

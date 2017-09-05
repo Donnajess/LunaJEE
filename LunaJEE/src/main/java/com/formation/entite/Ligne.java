@@ -40,9 +40,6 @@ public class Ligne implements Serializable {
 		this.identifiant = identifiant;
 	}
 
-	/*
-	 * Constructeur 1
-	 */
 	public Ligne(Article unArticle, int quantite) {
 		this();
 		this.article = unArticle;

@@ -114,7 +114,6 @@ public class ListArticleAction extends ActionSupport implements ModelDriven<Arti
 
 	@Override
 	public Article getModel() {
-		// TODO Auto-generated method stub
 		return article;
 	}
 

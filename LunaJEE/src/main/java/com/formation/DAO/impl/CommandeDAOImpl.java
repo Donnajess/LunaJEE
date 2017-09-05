@@ -15,7 +15,6 @@ import com.formation.entite.Commande;
 @Transactional
 public class CommandeDAOImpl implements CommandeDAO {
 
-	/* sessionFactory est injecté avec @Autowired, on ajoute son Setter */
 	@Autowired  
 	private SessionFactory sessionFactory;
 	
@@ -26,31 +25,26 @@ public class CommandeDAOImpl implements CommandeDAO {
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<Commande> getAllCommande() {
-		// TODO Auto-generated method stub
 		return this.sessionFactory.getCurrentSession().createQuery("from Commande").list();
 	}
 
 	@Override
 	public Commande getCommandeById(long code) {
-		// TODO Auto-generated method stub
 		return this.sessionFactory.getCurrentSession().get(Commande.class, code);
 	}
 
 	@Override
 	public void addCommande(Commande commande) {
-		// TODO Auto-generated method stub
 		this.sessionFactory.getCurrentSession().save(commande);
 	}
 
 	@Override
 	public void updateCommande(Commande commande) {
-		// TODO Auto-generated method stub
 		this.sessionFactory.getCurrentSession().save(commande);
 	}
 
 	@Override
 	public void deleteCommande(long code) {
-		// TODO Auto-generated method stub
 		Commande commande = sessionFactory.getCurrentSession().get(Commande.class, code);
 		this.sessionFactory.getCurrentSession().delete(commande);
 	}
