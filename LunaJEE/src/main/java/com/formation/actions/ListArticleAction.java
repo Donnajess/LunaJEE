@@ -24,11 +24,18 @@ public class ListArticleAction extends ActionSupport implements ModelDriven<Arti
 	private Categorie categorie;
 	private List<Article> listArticles;
 	private List<Categorie> listCategories;
-	private long code;
+	private List<String> listDesignations;
+	private Long code;
+	private String cat;
 	
 	public String add() {
 		Instant instant = Instant.now();
 		article.setDate(instant);
+		listCategories = categorieDAO.getAllCategorie();
+		long codeCat = Long.parseLong(cat);
+		Categorie c = categorieDAO.getCategorieById(codeCat);
+		
+		article.setReference(c);
 		articleDAO.addArticle(article);
 		
 		return SUCCESS;
@@ -43,21 +50,17 @@ public class ListArticleAction extends ActionSupport implements ModelDriven<Arti
 	
 	public String delete() {
 		articleDAO.deleteArticle(code);
-		return SUCCESS;
-	}
-	
-	@Override
-	public String execute() throws Exception {
-		// TODO Auto-generated method stub
+		
 		return SUCCESS;
 	}
 	
 	
-	public long getCode() {
+
+	public Long getCode() {
 		return code;
 	}
 
-	public void setCode(long code) {
+	public void setCode(Long code) {
 		this.code = code;
 	}
 
@@ -91,6 +94,22 @@ public class ListArticleAction extends ActionSupport implements ModelDriven<Arti
 
 	public void setListCategories(List<Categorie> listCategories) {
 		this.listCategories = listCategories;
+	}
+
+	public String getCat() {
+		return cat;
+	}
+
+	public void setCat(String cat) {
+		this.cat = cat;
+	}
+
+	public List<String> getListDesignations() {
+		return listDesignations;
+	}
+
+	public void setListDesignations(List<String> listDesignations) {
+		this.listDesignations = listDesignations;
 	}
 
 	@Override

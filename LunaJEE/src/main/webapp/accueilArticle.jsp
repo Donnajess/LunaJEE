@@ -15,10 +15,10 @@
 			<s:form cssClass="centre" theme="css_xhtml" action="addArticle">
 				<s:label value="Accueil Article"></s:label>
 				<s:label></s:label>
-				<s:textfield type="text" placeholder="Designation" name="designation"/>
-				<s:textfield type="text" placeholder="Quantité" name="quantite" />
-				<s:textfield type="text" placeholder="Prix Unitaire" name="prixUnitaire" />
-				<s:select list="listCategories" class="styled-select green rounded" listValue="designation"/>
+				<s:textfield type="text" placeholder="Designation" name="article.designation"/>
+				<s:textfield type="text" placeholder="Quantité" name="article.quantite" />
+				<s:textfield type="text" placeholder="Prix Unitaire" name="article.prixUnitaire" />
+				<s:select list="listCategories" class="styled-select green rounded" listValue="designation" name="cat" listKey="code" />
 				<s:submit value="Créer" cssClass="bouton" />
 			</s:form>
 
@@ -38,7 +38,7 @@
 							<td><s:property value="categorie.designation" /></td>
 							<td><s:property value="quantite" /></td>
 							<td><s:property value="prixUnitaire" /></td>
-							<td><s:a action="">Modifier</s:a></td>
+							<td><s:a action="updateArticle?code=%{code}">Modifier</s:a></td>
 							<td><s:a action="deleteArticle?code=%{code}">Supprimer</s:a></td>
 						</tr>
 					</s:iterator>

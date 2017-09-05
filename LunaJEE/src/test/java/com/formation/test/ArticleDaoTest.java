@@ -41,7 +41,7 @@ public class ArticleDaoTest {
 		Instant instant = Instant.now();
 		Article article = new Article(categorie, "Machine à laver", 15, 144.99, instant);
 		articleDAO.addArticle(article);
-		Assert.assertEquals(3, articleDAO.getAllArticles().size());
+		Assert.assertEquals(4, articleDAO.getAllArticles().size());
 	}
 	
 	@Test
@@ -58,7 +58,7 @@ public class ArticleDaoTest {
 	@Test
 	public void test3getAllArticle() {
 		List<Article> articleList = articleDAO.getAllArticles();
-		Assert.assertEquals(1, articleList.size());
+		Assert.assertEquals(3, articleList.size());
 		Article articleExpected = articleList.get(0);
 		Article articleResult = articleDAO.getArticleById(articleExpected.getCode());	
 		Assert.assertEquals(articleExpected.getCode(), articleResult.getCode());
@@ -68,13 +68,13 @@ public class ArticleDaoTest {
 	public void test4getArticleById() {
 		Article articleExpected = articleDAO.getArticleById(2);
 		long id = articleExpected.getCode();
-		Assert.assertEquals(2, id);
+		Assert.assertEquals(43, id);
 	}
 	
 	@Test
 	public void test5deleteArticle() {
 		List<Article> articleList = articleDAO.getAllArticles();
-		Assert.assertEquals(1, articleList.size());
+		Assert.assertEquals(3, articleList.size());
 		Article articleExpected = articleList.get(0);
 		long id = articleExpected.getCode();
 		articleDAO.deleteArticle(id);

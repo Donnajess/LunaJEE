@@ -31,7 +31,7 @@ public class Article implements Serializable {
 	@GeneratedValue
 	private Long code;
 
-	@ManyToOne(cascade = { CascadeType.ALL })
+	@ManyToOne(cascade = { CascadeType.PERSIST })
 	private Categorie categorie;
 
 	//@ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
@@ -51,22 +51,20 @@ public class Article implements Serializable {
 	/*
 	 * Constructeur
 	 */
-//	public Article(String code, String codeCategorie,
+//	public Article(long codeCategorie,
 //			String designation,
 //			int quantite, double prixUnitaire,
 //			Instant date) {
-//		this(code, 
-//				new Categorie().setCode(codeCategorie),
+//		this(new Categorie().setCode(codeCategorie),
 //				designation, 
 //				quantite, prixUnitaire,
 //				date);
 //	}
-	
-//	public Article(String code, Categorie categorie,
+//	
+//	public Article(Categorie categorie,
 //			String designation,
 //			int quantite, double prixUnitaire,
 //			Instant date) {
-//		this.code = code;
 //		this.categorie = categorie;
 //		this.designation = designation;
 //		this.quantite = quantite;
