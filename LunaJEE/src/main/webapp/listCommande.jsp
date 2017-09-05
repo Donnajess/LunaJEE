@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Accueil Commandes</title>
+<title>Liste des Commandes</title>
 <link rel="stylesheet" type="text/css" href="styles/commande.css"
 	media="all" />
 </head>
@@ -24,7 +24,7 @@
 					</tr>
 					<s:iterator value="commandeList">
 						<tr>
-							<td><s:property value="designation" /></td>
+							<td><s:property value="client.nom" /></td>
 							<td><s:property value="prixTTC" /></td>
 							<td><s:property value="modeReglement" /></td>
 							<td><s:a action="deleteCommande?code=%{code}">Supprimer</s:a></td>

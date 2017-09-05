@@ -1,14 +1,19 @@
 package com.formation.actions;
 
+import org.apache.struts2.convention.annotation.Action;
+import org.apache.struts2.convention.annotation.Result;
+import org.apache.struts2.convention.annotation.Results;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.formation.DAO.ClientDAO;
 import com.formation.entite.Adresse;
 import com.formation.entite.Client;
 import com.formation.services.ClientService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
+@Action("/updateClient")
+@Results({ @Result(name = "success", location = "/modifClient.jsp"),
+		@Result(name = "exec", type = "redirectAction", location = "listClient.action"), })
 public class UpdateClientAction extends ActionSupport implements ModelDriven<Client> {
 
 	private static final long serialVersionUID = 1L;
@@ -43,12 +48,14 @@ public class UpdateClientAction extends ActionSupport implements ModelDriven<Cli
 		return null;
 	}
 
-	public String majChamp() {
+	@Override
+	public String execute() throws Exception {
 		Long c = Long.parseLong(code);
 		setClient(clientService.getClientById(c));
 		return SUCCESS;
 	}
 
+	@Action("majClient")
 	public String update() {
 		Long c = Long.parseLong(code);
 		getClient().setCode(c);
@@ -56,7 +63,7 @@ public class UpdateClientAction extends ActionSupport implements ModelDriven<Cli
 		getClient().setPrenom(client.getPrenom());
 		getClient().setAdresse(adresse);
 		clientService.updateClient(getClient());
-		return SUCCESS;
+		return "exec";
 	}
 
 	public Client getClient() {

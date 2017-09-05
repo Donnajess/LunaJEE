@@ -5,27 +5,6 @@
 <struts>
 	<constant name="struts.devMode" value="true" />
 	<package name="default" namespace="/" extends="struts-default">
-		<action name="addClient" method="add"
-			class="com.formation.actions.ListClientAction">
-			<result name="success" type="redirectAction">listClient</result>
-		</action>
-		<action name="deleteClient" method="delete"
-			class="com.formation.actions.ListClientAction">
-			<result name="success" type="redirectAction">listClient</result>
-		</action>
-		<action name="listClient" method="listClient"
-			class="com.formation.actions.ListClientAction">
-			<result name="success">/accueilClient.jsp</result>
-		</action>
-
-		<action name="updateClient" method="majChamp"
-			class="com.formation.actions.UpdateClientAction">
-			<result name="success">/modifClient.jsp</result>
-		</action>
-		<action name="majClient" method="update"
-			class="com.formation.actions.UpdateClientAction">
-			<result name="success" type="redirectAction">listClient</result>
-		</action>
 		<action name="addArticle" method="add"
 			class="com.formation.actions.ListArticleAction">
 			<result name="success" type="redirectAction">listArticle</result>

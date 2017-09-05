@@ -32,7 +32,7 @@ public class Commande implements Serializable {
 	@GeneratedValue
 	private Long code;
 
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	private Client client;
 
 	private String modeReglement;
@@ -44,6 +44,7 @@ public class Commande implements Serializable {
 				mappedBy = "commande")
 	private List<Ligne> lignes = new ArrayList<>();
 
+	private double prixTTC;
 	/*
 	 * Constructeur 1
 	 */
@@ -132,4 +133,12 @@ public class Commande implements Serializable {
 		return Date.from(getInstant());
 	}
 	// ------------------------------------
+
+	public double getPrixTTC() {
+		return prixTTC;
+	}
+
+	public void setPrixTTC(double prixTTC) {
+		this.prixTTC = prixTTC;
+	}
 }

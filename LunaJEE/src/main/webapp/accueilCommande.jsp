@@ -17,7 +17,11 @@
 				</br>
 				<s:select value="Client" class="styled-select orange semi-square"
 					list="listClient" listValue="nom" listKey="code" name="client" />
-				</br>
+
+				<s:select value="Mode de Reglement"
+					class="styled-select orange semi-square" list="listReglements"
+					name="modeReglement" />
+				<b>--------------------------------------------------------------</b>
 				<s:select value="Article" class="styled-select orange semi-square"
 					list="listArticle" listValue="designation" listKey="code"
 					name="article" />
