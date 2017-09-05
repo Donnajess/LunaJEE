@@ -3,8 +3,6 @@ package com.formation.entite;
 import java.io.Serializable;
 import java.time.Instant;
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Set;
 
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -33,9 +31,6 @@ public class Article implements Serializable {
 
 	@ManyToOne(cascade = { CascadeType.PERSIST })
 	private Categorie categorie;
-
-	//@ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-	//private Set<Fournisseur> fournisseurs = new HashSet<>();
 	
 	@Basic
 	private String designation;
@@ -48,29 +43,6 @@ public class Article implements Serializable {
 
 	private LocalDate date;
 
-	/*
-	 * Constructeur
-	 */
-//	public Article(long codeCategorie,
-//			String designation,
-//			int quantite, double prixUnitaire,
-//			Instant date) {
-//		this(new Categorie().setCode(codeCategorie),
-//				designation, 
-//				quantite, prixUnitaire,
-//				date);
-//	}
-//	
-//	public Article(Categorie categorie,
-//			String designation,
-//			int quantite, double prixUnitaire,
-//			Instant date) {
-//		this.categorie = categorie;
-//		this.designation = designation;
-//		this.quantite = quantite;
-//		this.prixUnitaire = prixUnitaire;
-//		setDate(date);
-//	}
 	
 	public Article(Categorie categorie,String designation,int quantite, double prixUnitaire,Instant date) {
 		this.categorie = categorie;
@@ -113,13 +85,6 @@ public class Article implements Serializable {
 		return GestionDates.instant(date);
 	}
 	
-	/*public Set<Fournisseur> getFournisseurs() {
-		return this.fournisseurs;
-	}*/
-
-	/*
-	 * Mutateurs
-	 */
 	public void setCode(Long code) {
 		this.code = code;
 	}
@@ -139,10 +104,6 @@ public class Article implements Serializable {
 	public void setPrixUnitaire(double prix_unitaire) {
 		this.prixUnitaire = prix_unitaire;
 	}
-
-	/*public void setFournisseurs(Set<Fournisseur> fournisseurs) {
-		this.fournisseurs = fournisseurs;
-	}*/
 	
 	public void setDate(Instant date) {
 		this.date = GestionDates.date(date);

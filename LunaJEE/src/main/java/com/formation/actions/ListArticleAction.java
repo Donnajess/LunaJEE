@@ -1,25 +1,29 @@
 package com.formation.actions;
 
 import java.time.Instant;
-import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.struts2.convention.annotation.Action;
+import org.apache.struts2.convention.annotation.Result;
+import org.apache.struts2.convention.annotation.Results;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.formation.DAO.ArticleDAO;
-import com.formation.DAO.CategorieDAO;
 import com.formation.entite.Article;
 import com.formation.entite.Categorie;
+import com.formation.services.ArticleService;
+import com.formation.services.CategorieService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
+@Action("/listArticle")
+@Results(@Result(name = "success", location = "/accueilArticle.jsp"))
 public class ListArticleAction extends ActionSupport implements ModelDriven<Article> {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Autowired
-	private ArticleDAO articleDAO;
+	private ArticleService articleService;
 	@Autowired
-	private CategorieDAO categorieDAO;
+	private CategorieService categorieService;
 	private Article article;
 	private Categorie categorie;
 	private List<Article> listArticles;
@@ -27,34 +31,48 @@ public class ListArticleAction extends ActionSupport implements ModelDriven<Arti
 	private List<String> listDesignations;
 	private Long code;
 	private String cat;
+
 	
+	@Action("addArticle")
 	public String add() {
 		Instant instant = Instant.now();
 		article.setDate(instant);
-		listCategories = categorieDAO.getAllCategorie();
+		listCategories = categorieService.getAllCategories();
 		long codeCat = Long.parseLong(cat);
-		Categorie c = categorieDAO.getCategorieById(codeCat);
-		
+		Categorie c = categorieService.getCategorieById(codeCat);
+
 		article.setReference(c);
-		articleDAO.addArticle(article);
-		
+		articleService.addArticle(article);
+
 		return SUCCESS;
 	}
 	
+	@Action("listArticle")
 	public String listArticle() {
-		listArticles = articleDAO.getAllArticles();
-		listCategories = categorieDAO.getAllCategorie();
-		
+		listArticles = articleService.getAllArticles();
+		listCategories = categorieService.getAllCategories();
+
 		return SUCCESS;
 	}
-	
+
+	@Action("deleteArticle")
 	public String delete() {
-		articleDAO.deleteArticle(code);
-		
+		articleService.deleteArticle(code);
+
 		return SUCCESS;
 	}
+
 	
+	@Override
+	public Article getModel() {
+		// TODO Auto-generated method stub
+		return article;
+	}
 	
+
+	/*
+	 * Getter AND Setters
+	 */
 
 	public Long getCode() {
 		return code;
@@ -79,7 +97,7 @@ public class ListArticleAction extends ActionSupport implements ModelDriven<Arti
 	public void setListArticles(List<Article> listArticles) {
 		this.listArticles = listArticles;
 	}
-	
+
 	public Categorie getCategorie() {
 		return categorie;
 	}
@@ -110,12 +128,6 @@ public class ListArticleAction extends ActionSupport implements ModelDriven<Arti
 
 	public void setListDesignations(List<String> listDesignations) {
 		this.listDesignations = listDesignations;
-	}
-
-	@Override
-	public Article getModel() {
-		// TODO Auto-generated method stub
-		return article;
 	}
 
 }

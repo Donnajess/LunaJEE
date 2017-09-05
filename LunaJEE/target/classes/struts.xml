@@ -38,6 +38,11 @@
 			class="com.formation.actions.ListArticleAction">
 			<result name="success" type="redirectAction">listArticle</result>
 		</action>
-
+		<action name="updateArticle" method="majChamp" class="com.formation.actions.UpdateArticleAction" >
+			<result name="success">/modifArticle.jsp</result>
+		</action>
+		<action name="majArticle"  method="update" class="com.formation.actions.UpdateArticleAction" >
+			<result name="success" type="redirectAction">listArticle</result>
+		</action>
 	</package>
 </struts>
