@@ -131,6 +131,11 @@ public class ListCommandeAction extends ActionSupport {
 		client = null;
 		return "valider";
 	}
+	
+	@Action("listerCommande")
+	public String lister() {
+		return "valider";
+	}
 
 	public List<Article> getListArticle() {
 		return listArticle;

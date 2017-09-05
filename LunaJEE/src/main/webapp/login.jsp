@@ -11,7 +11,7 @@
 </head>
 <body>
 	<div class="login-page">
-		<div class="form">
+		<div class="format">
 			<s:form action="login" method="post" cssClass="centre" theme="css_xhtml">
 				<s:label value="SARL LUNA"><img src="images/logo_actifSolution.png"/></s:label>
 				</br>

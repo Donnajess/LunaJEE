@@ -11,19 +11,41 @@
 </head>
 <body>
 	<div class="login-page">
+		<table>
+			<tr>
+				<td><s:form cssClass="centre" theme="css_xhtml"
+						action="accueil">
+						<s:submit value="Accueil" cssClass="boutonAccueil" />
+					</s:form></td>
+				<td><s:form cssClass="centre" theme="css_xhtml"
+						action="listClient">
+						<s:submit value="Client" cssClass="boutonClient" />
+					</s:form></td>
+				<td><s:form cssClass="centre" theme="css_xhtml"
+						action="listCommande">
+						<s:submit value="Commande" cssClass="boutonCommande" />
+					</s:form></td>
+			</tr>
+		</table>
 		<div class="form">
 			<s:form cssClass="centre" theme="css_xhtml" action="addArticle">
-				<s:label value="Accueil Article"></s:label>
+				<s:label cssClass="labelTitre" value="Accueil Article"></s:label>
 				<s:label></s:label>
-				<s:textfield type="text" placeholder="Designation" name="article.designation"/>
-				<s:textfield type="text" placeholder="Quantité" name="article.quantite" />
-				<s:textfield type="text" placeholder="Prix Unitaire" name="article.prixUnitaire" />
-				<s:select list="listCategories" class="styled-select green rounded" listValue="designation" name="cat" listKey="code" />
+				<s:textfield type="text" placeholder="Designation"
+					name="article.designation" />
+				<s:textfield type="text" placeholder="Quantité"
+					name="article.quantite" />
+				<s:textfield type="text" placeholder="Prix Unitaire"
+					name="article.prixUnitaire" />
+				<s:select list="listCategories" class="styled-select green rounded"
+					listValue="designation" name="cat" listKey="code" />
+					<br>
 				<s:submit value="Créer" cssClass="bouton" />
 			</s:form>
 
 			<div class="content">
-				<table align="center" class="userTable" cellpadding="5px" border="1px solid black">
+				<table align="center" class="userTable" cellpadding="5px"
+					border="1px solid black">
 					<tr class="even">
 						<th>Designation</th>
 						<th>Categorie</th>

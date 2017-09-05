@@ -11,16 +11,34 @@
 </head>
 <body>
 	<div class="login-page">
+
+		<table>
+			<tr>
+				<td><s:form cssClass="centre" theme="css_xhtml"
+						action="accueil">
+						<s:submit value="Accueil" cssClass="boutonAccueil" />
+					</s:form></td>
+				<td><s:form cssClass="centre" theme="css_xhtml"
+						action="listArticle">
+						<s:submit value="Article" cssClass="boutonArticle" />
+					</s:form></td>
+				<td><s:form cssClass="centre" theme="css_xhtml"
+						action="listCommande">
+						<s:submit value="Commande" cssClass="boutonCommande" />
+					</s:form></td>
+			</tr>
+		</table>
 		<div class="form">
 			<s:form cssClass="centre" theme="css_xhtml" action="addClient">
-				<s:label value="Accueil Client"></s:label>
+				<s:label cssClass="labelTitre" value="Accueil Client"></s:label>
 				<s:label></s:label>
 				<s:textfield type="text" placeholder="Nom" name="client.nom" />
 				<s:textfield type="text" placeholder="Prénom" name="client.prenom" />
 				<s:label>"Souhaitez vous une carte de fidélité ?"</s:label>
 				<s:checkbox name="client.carte_fidele" fieldValue="true" />
 				<s:textfield type="text" placeholder="Rue" name="adresse.rue" />
-				<s:textfield type="text" placeholder="Code" name="adresse.codePostal" />
+				<s:textfield type="text" placeholder="Code"
+					name="adresse.codePostal" />
 				<s:textfield type="text" placeholder="Ville" name="adresse.ville" />
 				<s:submit value="Créer" cssClass="bouton" />
 			</s:form>

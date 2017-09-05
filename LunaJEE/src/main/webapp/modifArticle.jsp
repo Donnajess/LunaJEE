@@ -13,7 +13,7 @@
 	<div class="login-page">
 		<div class="form">
 			<s:form cssClass="centre" theme="css_xhtml" action="majArticle">
-				<s:label value="Modification Article"></s:label>
+				<s:label  cssClass="labelTitre" value="Modification Article"></s:label>
 				<s:label></s:label>
 				<s:textfield type="text" placeholder="Designation" name="article.designation"/>
 				<s:textfield type="text" placeholder="Quantité" name="article.quantite" />

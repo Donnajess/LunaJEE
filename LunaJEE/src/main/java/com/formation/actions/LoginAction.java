@@ -41,6 +41,11 @@ public class LoginAction extends ActionSupport implements ModelDriven<User> {
 		this.user = user;
 	}
 
+	@Action("accueil")
+	public String accueil() {
+		return SUCCESS;
+	}
+
 	@Override
 	public String execute() throws Exception {
 		List<User> users = userService.getAllUser();
