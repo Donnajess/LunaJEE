@@ -13,7 +13,7 @@
 	<div class="login-page">
 		<div class="form">
 			<s:form cssClass="centre" theme="css_xhtml" action="majClient">
-				<s:label value="Modification Client"></s:label>
+				<s:label  cssClass="labelTitre" value="Modification Client"></s:label>
 				<s:label></s:label>
 				<s:textfield type="text" placeholder="Nom" value="%{client.nom}" name="client.nom"/>
 				<s:textfield type="text" placeholder="Prénom" value="%{client.prenom}" name="client.prenom"/>

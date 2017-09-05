@@ -14,11 +14,8 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
 @Action("/login")
-@Results({
-	@Result(name = "success", location = "/accueil.jsp"),
-	@Result(name = "error", location = "/login.jsp"),
-})
-public class LoginAction extends ActionSupport  implements ModelDriven<User> {
+@Results({ @Result(name = "success", location = "/accueil.jsp"), @Result(name = "error", location = "/login.jsp"), })
+public class LoginAction extends ActionSupport implements ModelDriven<User> {
 
 	private static final long serialVersionUID = 1L;
 
@@ -42,12 +39,17 @@ public class LoginAction extends ActionSupport  implements ModelDriven<User> {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
+
+	@Action("accueil")
+	public String accueil() {
+		return SUCCESS;
+	}
+
 	@Override
 	public String execute() throws Exception {
 		List<User> users = userService.getAllUser();
 		for (User u : users) {
-			if(u.getUsername().equals(user.getUsername()) && (u.getMdp().equals(user.getMdp()))){
+			if (u.getUsername().equals(user.getUsername()) && (u.getMdp().equals(user.getMdp()))) {
 				return SUCCESS;
 			}
 		}

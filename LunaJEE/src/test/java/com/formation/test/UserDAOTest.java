@@ -57,5 +57,7 @@ public class UserDAOTest {
 			userDAO.deleteUser(1);
 			User user = userDAO.getUserById(1);
 			Assert.assertNull(user);
+			user = new User("toto", "toto");
+			userDAO.addUser(user);
 		}
 }

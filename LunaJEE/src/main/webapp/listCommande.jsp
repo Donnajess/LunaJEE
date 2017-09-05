@@ -11,8 +11,30 @@
 </head>
 <body>
 	<div class="login-page">
+		<table>
+			<tr>
+				<td><s:form cssClass="centre" theme="css_xhtml"
+						action="accueil">
+						<s:submit value="Accueil" cssClass="boutonAccueil" />
+					</s:form></td>
+				<td><s:form cssClass="centre" theme="css_xhtml"
+						action="listClient">
+						<s:submit value="Client" cssClass="boutonClient" />
+					</s:form></td>
+				<td><s:form cssClass="centre" theme="css_xhtml"
+						action="listArticle">
+						<s:submit value="Article" cssClass="boutonArticle" />
+					</s:form></td>
+				<td><s:form cssClass="centre" theme="css_xhtml"
+						action="listCommande">
+						<s:submit value="Commande" cssClass="boutonCommande" />
+					</s:form></td>
+			</tr>
+		</table>
 		<div class="form">
-			<s:label value="Liste des commandes"></s:label>
+			<s:label cssClass="labelTitre" value="Liste des commandes"></s:label>
+				</br>
+				</br>
 			<div class="content">
 				<table align="center" class="commandeTable" cellpadding="5px"
 					border="1px solid black">

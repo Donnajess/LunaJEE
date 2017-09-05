@@ -11,14 +11,35 @@
 </head>
 <body>
 	<div class="login-page">
+
+		<table>
+			<tr>
+				<td><s:form cssClass="centre" theme="css_xhtml"
+						action="accueil">
+						<s:submit value="Accueil" cssClass="boutonAccueil" />
+					</s:form></td>
+				<td><s:form cssClass="centre" theme="css_xhtml"
+						action="listClient">
+						<s:submit value="Client" cssClass="boutonClient" />
+					</s:form></td>
+				<td><s:form cssClass="centre" theme="css_xhtml"
+						action="listArticle">
+						<s:submit value="Article" cssClass="boutonArticle" />
+					</s:form></td>
+				<td><s:form cssClass="centre" theme="css_xhtml"
+						action="listerCommande">
+						<s:submit value="Liste des commandes" cssClass="boutonCommande" />
+					</s:form></td>
+			</tr>
+		</table>
 		<div class="form">
 			<s:form cssClass="centre" theme="css_xhtml" action="addLigne">
-				<s:label value="Accueil Commande"></s:label>
+				<s:label cssClass="labelTitre" value="Accueil Commande"></s:label>
 				</br>
-				<s:select value="Client" class="styled-select orange semi-square"
+				<s:select label="Client" class="styled-select orange semi-square"
 					list="listClient" listValue="nom" listKey="code" name="client" />
-
-				<s:select value="Mode de Reglement"
+				<br>
+				<s:select label="Mode de Reglement"
 					class="styled-select orange semi-square" list="listReglements"
 					name="modeReglement" />
 				<b>--------------------------------------------------------------</b>
@@ -55,8 +76,7 @@
 			<s:label value="Montant de la commande :" />
 			<s:property value="montant" />
 			<s:label value=" euros" />
-			</br>
-			<s:form action="validerCommande">
+			<s:form cssClass="centre" theme="css_xhtml" action="validerCommande">
 				<s:submit value="Valider la commande" cssClass="bouton" />
 			</s:form>
 		</div>

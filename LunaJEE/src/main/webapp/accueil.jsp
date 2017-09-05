@@ -11,20 +11,20 @@
 </head>
 <body>
 	<div class="login-page">
-		<div class="form">
-			<s:label value="Accueil"></s:label>
-			</br>
-			<s:form cssClass="centre" theme="css_xhtml" action="listClient"
+		<div class="format">
+			<s:label cssClass="labelTitre" value="Accueil"></s:label>
+			</br> </br>
+			<s:form theme="css_xhtml" action="listClient"
 				method="post">
-				<s:submit name="Valider" cssClass="bouton" value="Client" />
+				<s:submit name="Valider" cssClass="boutonClient" value="Client" />
 			</s:form>
 			<s:form cssClass="centre" theme="css_xhtml" action="listArticle"
 				method="post">
-				<s:submit name="Valider" value="Article" cssClass="bouton" />
+				<s:submit name="Valider" value="Article" cssClass="boutonArticle" />
 			</s:form>
 			<s:form cssClass="centre" theme="css_xhtml" action="listCommande"
 				method="post">
-				<s:submit name="Valider" value="Commande" cssClass="bouton" />
+				<s:submit name="Valider" value="Commande" cssClass="boutonCommande" />
 			</s:form>
 		</div>
 	</div>
