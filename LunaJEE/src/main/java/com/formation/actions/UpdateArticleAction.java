@@ -1,83 +1,110 @@
 package com.formation.actions;
 
+import java.time.Instant;
+import java.util.List;
+
+import org.apache.struts2.convention.annotation.Action;
+import org.apache.struts2.convention.annotation.Result;
+import org.apache.struts2.convention.annotation.Results;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.formation.DAO.ArticleDAO;
-import com.formation.DAO.CategorieDAO;
 import com.formation.entite.Article;
 import com.formation.entite.Categorie;
+import com.formation.services.ArticleService;
+import com.formation.services.CategorieService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
-public class UpdateArticleAction extends ActionSupport implements ModelDriven<Article>  {
+@Action("updateArticle")
+@Results({ @Result(name = "success", location = "/modifArticle.jsp"),
+		@Result(name = "accueil", type = "redirectAction", location = "listArticle.action"), })
+public class UpdateArticleAction extends ActionSupport implements ModelDriven<Article> {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Autowired
-	private ArticleDAO articleDAO;
+	private ArticleService articleService;
 	@Autowired
-	private CategorieDAO categorieDAO;
+	private CategorieService categorieService;
 	private Article article;
 	private Categorie categorie;
-	private Long code;
-	
-	
-	public String update() {
-		Article art = articleDAO.getArticleById(code);
+	private static Long code;
+	private List<Categorie> listCategories;
+	private String cat;
+
+	@Override
+	public String execute() throws Exception {
+		Article art = articleService.getArticleById(code);
 		setArticle(art);
+		listCategories = categorieService.getAllCategories();
+
 		return SUCCESS;
 	}
-	
-	public String majChamp() {
-		getArticle().setDesignation(article.getDesignation());	
+
+	@Action("majArticle")
+	public String update() {
+		Instant instant = Instant.now();
+		article.setDate(instant);
+		listCategories = categorieService.getAllCategories();
+		long codeCat = Long.parseLong(cat);
+		Categorie c = categorieService.getCategorieById(codeCat);
+
+		getArticle().setCode(code);
+		getArticle().setDate(instant);
+		getArticle().setDesignation(article.getDesignation());
 		getArticle().setQuantite(article.getQuantite());
 		getArticle().setPrixUnitaire(article.getPrixUnitaire());
-		getArticle().setReference(article.getCategorie());
-		
-		return SUCCESS;
+		getArticle().setReference(c);
+		articleService.updateArticle(getArticle());
+
+		return "accueil";
 	}
-	
-	
-	
+
+	/*
+	 * Getter AND Setters
+	 */
 	public Article getArticle() {
 		return article;
 	}
-
-
 
 	public void setArticle(Article article) {
 		this.article = article;
 	}
 
-
-
 	public Categorie getCategorie() {
 		return categorie;
 	}
-
-
 
 	public void setCategorie(Categorie categorie) {
 		this.categorie = categorie;
 	}
 
-
-
 	public Long getCode() {
 		return code;
 	}
 
-
-
-	public void setCode(Long code) {
-		this.code = code;
+	public void setCode(Long code1) {
+		code = code1;
 	}
-
-
 
 	@Override
 	public Article getModel() {
 		return article;
 	}
 
-	
+	public List<Categorie> getListCategories() {
+		return listCategories;
+	}
+
+	public void setListCategories(List<Categorie> listCategories) {
+		this.listCategories = listCategories;
+	}
+
+	public String getCat() {
+		return cat;
+	}
+
+	public void setCat(String cat) {
+		this.cat = cat;
+	}
+
 }
