@@ -1,8 +1,5 @@
 package com.formation.actions;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.forwardedUrl;
-
-import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +40,9 @@ public class ListCommandeAction extends ActionSupport {
 	private List<Client> listClient;
 	private String article;
 	private static String client;
+	private static String modeReglement;
+	private List<String> listReglements;
+
 	private static double montant = 0.00;
 
 	public String getArticle() {
@@ -75,6 +75,10 @@ public class ListCommandeAction extends ActionSupport {
 	public String execute() throws Exception {
 		listArticle = articleService.getAllArticles();
 		listClient = clientService.getAllClient();
+		listReglements = new ArrayList<String>();
+		listReglements.add("Cheques");
+		listReglements.add("Carte Bleue");
+		listReglements.add("PayPal");
 		return SUCCESS;
 	}
 
@@ -116,11 +120,15 @@ public class ListCommandeAction extends ActionSupport {
 	public String valide() {
 		Client monClient = null;
 		monClient = clientService.getClientById(Long.parseLong(client));
-		Commande c = new Commande(monClient, "cheques", LocalDateTime.now(), new ArrayList<Ligne>());
-		for(Ligne l : commandeList){
+		Commande c = new Commande(monClient, "Cheques", LocalDateTime.now(), new ArrayList<Ligne>());
+		for (Ligne l : commandeList) {
 			c.ajouter(l);
 		}
+		c.setPrixTTC(montant);
 		commandeService.addCommande(c);
+		montant = 0.00;
+		commandeList.clear();
+		client = null;
 		return "valider";
 	}
 
@@ -160,8 +168,8 @@ public class ListCommandeAction extends ActionSupport {
 		return montant;
 	}
 
-	public void setMontant(double montant) {
-		this.montant = montant;
+	public void setMontant(double montant1) {
+		montant = montant1;
 	}
 
 	public String getIdentifiant() {
@@ -171,5 +179,22 @@ public class ListCommandeAction extends ActionSupport {
 	public void setIdentifiant(String identifiant) {
 		this.identifiant = identifiant;
 	}
+
+	public List<String> getListReglements() {
+		return listReglements;
+	}
+
+	public void setListReglements(List<String> listReglements) {
+		this.listReglements = listReglements;
+	}
+
+	public String getModeReglement() {
+		return modeReglement;
+	}
+
+	public void setModeReglement(String modeReglement) {
+		this.modeReglement = modeReglement;
+	}
+
 
 }

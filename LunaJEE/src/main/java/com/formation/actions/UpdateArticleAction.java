@@ -3,23 +3,28 @@ package com.formation.actions;
 import java.time.Instant;
 import java.util.List;
 
+import org.apache.struts2.convention.annotation.Action;
+import org.apache.struts2.convention.annotation.Result;
+import org.apache.struts2.convention.annotation.Results;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.formation.DAO.ArticleDAO;
-import com.formation.DAO.CategorieDAO;
 import com.formation.entite.Article;
 import com.formation.entite.Categorie;
 import com.formation.services.ArticleService;
+import com.formation.services.CategorieService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
+@Action("updateArticle")
+@Results({ @Result(name = "success", location = "/modifArticle.jsp"),
+	@Result(name = "accueil", type = "redirectAction", location = "listArticle.action"), })
 public class UpdateArticleAction extends ActionSupport implements ModelDriven<Article>  {
 	private static final long serialVersionUID = 1L;
 	
 	@Autowired
 	private ArticleService articleService;
 	@Autowired
-	private CategorieDAO categorieDAO;
+	private CategorieService categorieService;
 	private Article article;
 	private Categorie categorie;
 	private static Long code;
@@ -27,13 +32,22 @@ public class UpdateArticleAction extends ActionSupport implements ModelDriven<Ar
 	private String cat;
 	
 
-	
+	@Override
+	public String execute() throws Exception {
+		Article art = articleService.getArticleById(code);
+		setArticle(art);
+		listCategories = categorieService.getAllCategories();
+		
+		return SUCCESS;
+	}
+
+	@Action("majArticle")
 	public String update() {
 		Instant instant = Instant.now();
 		article.setDate(instant);
-		listCategories = categorieDAO.getAllCategorie();
+		listCategories = categorieService.getAllCategories();
 		long codeCat = Long.parseLong(cat);
-		Categorie c = categorieDAO.getCategorieById(codeCat);
+		Categorie c = categorieService.getCategorieById(codeCat);
 		
 		getArticle().setCode(code);
 		getArticle().setDate(instant);
@@ -43,29 +57,18 @@ public class UpdateArticleAction extends ActionSupport implements ModelDriven<Ar
 		getArticle().setReference(c);
 		articleService.updateArticle(getArticle());
 				
-		return SUCCESS;
-	}
-	
-	public String majChamp() {
-		Article art = articleService.getArticleById(code);
-		setArticle(art);
-
-		listCategories = categorieDAO.getAllCategorie();
-		
-		return SUCCESS;
+		return "accueil";
 	}
 	
 	@Override
 	public Article getModel() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	
+	
 	/* Getter 
 	 * 		AND
-	 * 			Setters */
-
-	
+	 * 			Setters */	
 	public Article getArticle() {
 		return article;
 	}

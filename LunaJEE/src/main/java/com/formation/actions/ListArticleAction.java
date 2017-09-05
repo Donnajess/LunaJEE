@@ -16,7 +16,8 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
 @Action("/listArticle")
-@Results(@Result(name = "success", location = "/accueilArticle.jsp"))
+@Results({@Result(name = "success", location = "/accueilArticle.jsp"),
+			@Result(name = "accueil", type = "redirectAction", location = "listArticle.action") })
 public class ListArticleAction extends ActionSupport implements ModelDriven<Article> {
 	private static final long serialVersionUID = 1L;
 
@@ -33,6 +34,14 @@ public class ListArticleAction extends ActionSupport implements ModelDriven<Arti
 	private String cat;
 
 	
+	@Override
+	public String execute() throws Exception {
+		listArticles = articleService.getAllArticles();
+		listCategories = categorieService.getAllCategories();
+
+		return SUCCESS;
+	}
+
 	@Action("addArticle")
 	public String add() {
 		Instant instant = Instant.now();
@@ -44,28 +53,18 @@ public class ListArticleAction extends ActionSupport implements ModelDriven<Arti
 		article.setReference(c);
 		articleService.addArticle(article);
 
-		return SUCCESS;
-	}
-	
-	@Action("listArticle")
-	public String listArticle() {
-		listArticles = articleService.getAllArticles();
-		listCategories = categorieService.getAllCategories();
-
-		return SUCCESS;
+		return "accueil";
 	}
 
 	@Action("deleteArticle")
 	public String delete() {
 		articleService.deleteArticle(code);
 
-		return SUCCESS;
+		return "accueil";
 	}
 
-	
 	@Override
 	public Article getModel() {
-		// TODO Auto-generated method stub
 		return article;
 	}
 	
