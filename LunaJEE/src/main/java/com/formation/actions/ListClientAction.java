@@ -1,7 +1,5 @@
 package com.formation.actions;
 
-
-
 import java.time.Instant;
 import java.util.List;
 

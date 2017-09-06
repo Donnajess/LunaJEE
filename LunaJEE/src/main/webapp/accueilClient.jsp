@@ -61,7 +61,9 @@
 							<td><s:property value="carte_fidele" /></td>
 							<td><s:property value="adresse.ville" /></td>
 							<td><s:a action="updateClient?code=%{code}">Modifier</s:a></td>
-							<td><s:a action="deleteClient?code=%{code}">Suppression</s:a></td>
+							<td><s:a action="deleteClient?code=%{code}"   
+									onclick="javascript: if (confirm('Voulez-vous supprimer cet article ?'))  
+														return true; else return false; ">Suppression</s:a></td>
 						</tr>
 					</s:iterator>
 				</table>

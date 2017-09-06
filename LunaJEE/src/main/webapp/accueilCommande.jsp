@@ -67,7 +67,9 @@
 							<td><s:property value="article.designation" /></td>
 							<td><s:property value="quantite" /></td>
 							<td><s:property value="prix" /></td>
-							<td><s:a action="deleteLigne?identifiant=%{identifiant}">Supprimer</s:a></td>
+							<td><s:a action="deleteLigne?identifiant=%{identifiant}"    
+									onclick="javascript: if (confirm('Voulez-vous supprimer cet article ?'))  
+														return true; else return false; ">Supprimer</s:a></td>
 						</tr>
 					</s:iterator>
 				</table>

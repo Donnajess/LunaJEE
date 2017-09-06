@@ -61,7 +61,9 @@
 							<td><s:property value="quantite" /></td>
 							<td><s:property value="prixUnitaire" /></td>
 							<td><s:a action="updateArticle?code=%{code}">Modifier</s:a></td>
-							<td><s:a action="deleteArticle?code=%{code}">Supprimer</s:a></td>
+							<td><s:a action="deleteArticle?code=%{code}"  
+									onclick="javascript: if (confirm('Voulez-vous supprimer cet article ?'))  
+														return true; else return false; ">Supprimer</s:a></td>
 						</tr>
 					</s:iterator>
 				</table>
