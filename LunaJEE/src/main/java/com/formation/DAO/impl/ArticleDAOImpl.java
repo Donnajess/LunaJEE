@@ -24,6 +24,11 @@ public class ArticleDAOImpl implements ArticleDAO {
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
+	
+	@Override
+	public SessionFactory getSessionFactory() {
+		return sessionFactory;
+	}
 
 	@Override
 	@SuppressWarnings("unchecked")

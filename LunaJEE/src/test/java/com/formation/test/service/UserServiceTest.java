@@ -1,7 +1,10 @@
-package com.formation.test;
+package com.formation.test.service;
+
+import static org.junit.Assert.assertNotNull;
 
 import java.util.List;
 
+import org.hibernate.SessionFactory;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
@@ -12,52 +15,53 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.formation.DAO.UserDAO;
 import com.formation.entite.User;
+import com.formation.services.UserService;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class UserDAOTest {
+public class UserServiceTest {
 
 		private static ApplicationContext context;
-		private static UserDAO userDAO;
+		private static UserService userService;
 
 		@BeforeClass
 		public static void oneTimeSetUp() {
 			context = new ClassPathXmlApplicationContext("/applicationContext.xml");
-			userDAO = (UserDAO) context.getBean("userDAO");
+			userService = (UserService) context.getBean("userService");
 		}
 
 		@Test
 		public void test1AddUser() {
 			User user = new User("toto", "toto");
-			userDAO.addUser(user);
-			Assert.assertEquals(1, userDAO.getAllUser().size());
+			userService.addUser(user);
+			Assert.assertEquals(1, userService.getAllUser().size());
 		}
 
 		@Test
 		public void test2UpdateUser() {
-			User user = userDAO.getUserById(1);
+			User user = userService.getUserById(1);
 			user.setUsername("popo");
-			userDAO.updateUser(user);
-			Assert.assertEquals("popo", userDAO.getUserById(1).getUsername());
+			userService.updateUser(user);
+			Assert.assertEquals("popo", userService.getUserById(1).getUsername());
 		}
 
 		@Test
 		public void test3RetrieveUser() {
-			User user = userDAO.getUserById(1);
+			User user = userService.getUserById(1);
 			Assert.assertNotNull(user);
 		}
 
 		@Test
 		public void test4RetrieveAllUser() {
-			List<User> users = userDAO.getAllUser();
+			List<User> users = userService.getAllUser();
 			Assert.assertNotNull(users);
 		}
 
 		@Test
 		public void test5DeleteUser() {
-			userDAO.deleteUser(1);
-			User user = userDAO.getUserById(1);
+			userService.deleteUser(1);
+			User user = userService.getUserById(1);
 			Assert.assertNull(user);
 			user = new User("toto", "toto");
-			userDAO.addUser(user);
+			userService.addUser(user);
 		}
 }

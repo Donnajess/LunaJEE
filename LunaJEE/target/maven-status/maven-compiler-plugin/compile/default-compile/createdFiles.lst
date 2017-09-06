@@ -18,7 +18,6 @@ com\formation\entite\Commande.class
 com\formation\DAO\impl\AdresseDAOImpl.class
 com\formation\DAO\impl\CategorieDAOImpl.class
 com\formation\services\impl\CommandeServiceImpl.class
-com\formation\actions\AccueilArticleAction.class
 com\formation\services\impl\UserServiceImpl.class
 com\formation\entite\User.class
 com\formation\services\UserService.class
@@ -27,7 +26,6 @@ com\formation\actions\ListClientAction.class
 com\formation\DAO\ClientDAO.class
 com\formation\services\impl\CategorieServiceImpl.class
 com\formation\entite\Ligne.class
-com\formation\actions\AccueilCommandeAction.class
 com\formation\controle\utilitaires\GestionDates.class
 com\formation\DAO\CategorieDAO.class
 com\formation\controle\utilitaires\ConvertisseurLocalDateTime.class

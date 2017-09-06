@@ -1,7 +1,10 @@
-package com.formation.test;
+package com.formation.test.dao;
+
+import static org.junit.Assert.assertNotNull;
 
 import java.util.List;
 
+import org.hibernate.SessionFactory;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
@@ -24,7 +27,14 @@ public class AdresseDaoTest {
 		context = new ClassPathXmlApplicationContext("/applicationContext.xml");
 		adresseDAO = (AdresseDAO) context.getBean("adresseDAO");
 	}
-
+	
+	@Test
+	public void test0SessionFactory(){
+		SessionFactory sf = adresseDAO.getSessionFactory();
+		adresseDAO.setSessionFactory(sf);
+		assertNotNull(adresseDAO.getSessionFactory());
+	}
+	
 	@Test
 	public void test1AddAdresse() {
 		Adresse adresse = new Adresse("35 rue peupliers", "59000", "Lille");

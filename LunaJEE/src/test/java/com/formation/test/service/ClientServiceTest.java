@@ -1,8 +1,13 @@
-package com.formation.test;
+package com.formation.test.service;
+
+import static org.junit.Assert.assertNotNull;
 
 import java.time.Instant;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.SessionFactory;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
@@ -16,55 +21,65 @@ import com.formation.DAO.ClientDAO;
 import com.formation.DAO.CommandeDAO;
 import com.formation.entite.Adresse;
 import com.formation.entite.Client;
+import com.formation.entite.Commande;
+import com.formation.entite.Ligne;
+import com.formation.services.ClientService;
+import com.formation.services.CommandeService;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class ClientDaoTest {
+public class ClientServiceTest {
 
 	private static ApplicationContext context;
-	private static ClientDAO clientDAO;
+	private static ClientService clientService;
 	private static AdresseDAO adresseDAO;
+	private static CommandeService commandeService;
 
 	@BeforeClass
 	public static void oneTimeSetUp() {
 		context = new ClassPathXmlApplicationContext("/applicationContext.xml");
 		adresseDAO = (AdresseDAO) context.getBean("adresseDAO");
-		clientDAO = (ClientDAO) context.getBean("clientDAO");
+		clientService = (ClientService) context.getBean("clientService");
+		commandeService = (CommandeService) context.getBean("commandeService");
 	}
 
+	
 	@Test
 	public void test1AddClient() {
 		Adresse adr = new Adresse("35 rue peupliers", "59000", "Lille");
 		adresseDAO.addAdresse(adr);
 		Instant inst = Instant.now();
 		Client cli = new Client("Malleret", "Kevin", true, inst, adr);
-		clientDAO.addClient(cli);
-		Assert.assertEquals(1, clientDAO.getAllClient().size());
+		clientService.addClient(cli);
+		Assert.assertEquals(1, clientService.getAllClient().size());
 	}
 
 	@Test
 	public void test2UpdateClient() {
-		Client cli = clientDAO.getClientById(2);
+		Client cli = clientService.getClientById(2);
 		cli.setNom("Mich");
-		clientDAO.updateClient(cli);
-		Assert.assertEquals(cli.getNom(), clientDAO.getClientById(2).getNom());
+		clientService.updateClient(cli);
+		Assert.assertEquals(cli.getNom(), clientService.getClientById(2).getNom());
 	}
 
 	@Test
 	public void test3RetrieveClient() {
-		Client cli = clientDAO.getClientById(2);
+		Client cli = clientService.getClientById(2);
 		Assert.assertNotNull(cli);
 	}
 
 	@Test
 	public void test4RetrieveAllClient() {
-		List<Client> clients = clientDAO.getAllClient();
+		List<Client> clients = clientService.getAllClient();
 		Assert.assertNotNull(clients);
 	}
 
 	@Test
-	public void test5DeleteAdresse() {
-		clientDAO.deleteClient(2);
-		Assert.assertNull(clientDAO.getClientById(2));
+	public void test5DeleteClient() {
+		List<Ligne> lignes = new ArrayList<Ligne>();
+		Commande c = new Commande(clientService.getClientById(2), "Cheques", LocalDateTime.now(), lignes);
+		commandeService.addCommande(c);
+		clientService.deleteClient(2);
+		Assert.assertNull(clientService.getClientById(2));
 	}
 
 }

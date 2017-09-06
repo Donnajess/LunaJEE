@@ -19,8 +19,14 @@ public class ClientDAOImpl implements ClientDAO {
 	@Autowired  
 	private SessionFactory sessionFactory;
 	
+	@Override
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
+	}
+	
+	@Override
+	public SessionFactory getSessionFactory() {
+		return sessionFactory;
 	}
 
 	@Override

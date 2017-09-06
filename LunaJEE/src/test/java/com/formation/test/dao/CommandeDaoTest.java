@@ -1,10 +1,14 @@
-package com.formation.test;
+package com.formation.test.dao;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.SessionFactory;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
@@ -45,6 +49,12 @@ public class CommandeDaoTest {
 		adresseDAO = (AdresseDAO) context.getBean("adresseDAO");
 	}
 	
+	@Test
+	public void test0SessionFactory(){
+		SessionFactory sf = commandeDAO.getSessionFactory();
+		commandeDAO.setSessionFactory(sf);
+		assertNotNull(commandeDAO.getSessionFactory());
+	}
 	
 	@Test
 	public void test1AddCommande() {
@@ -66,5 +76,23 @@ public class CommandeDaoTest {
 		Assert.assertEquals(1, commandeDAO.getAllCommande().size());
 	}
 	
+	@Test
+	public void test2RetrieveCommande() {
+		Commande c = commandeDAO.getCommandeById(5);
+		assertNotNull(c);
+	}
+	
+	@Test
+	public void test3RetrieveAllCommande() {
+		List<Commande> c = commandeDAO.getAllCommande();
+		assertNotNull(c);
+	}
+	
+	@Test
+	public void test4DeleteCommande() {
+		commandeDAO.deleteCommande(5);
+		List<Commande> c = commandeDAO.getAllCommande();
+		assertEquals(0, c.size());
+	}
 
 }

@@ -1,4 +1,3 @@
-C:\Users\SDJ05\git\LunaJEE\LunaJEE\src\main\java\com\formation\actions\AccueilArticleAction.java
 C:\Users\SDJ05\git\LunaJEE\LunaJEE\src\main\java\com\formation\controle\utilitaires\ConvertisseurLocalDateTime.java
 C:\Users\SDJ05\git\LunaJEE\LunaJEE\src\main\java\com\formation\services\impl\ArticleServiceImpl.java
 C:\Users\SDJ05\git\LunaJEE\LunaJEE\src\main\java\com\formation\services\impl\ClientServiceImpl.java
@@ -33,7 +32,6 @@ C:\Users\SDJ05\git\LunaJEE\LunaJEE\src\main\java\com\formation\DAO\impl\UserDAOI
 C:\Users\SDJ05\git\LunaJEE\LunaJEE\src\main\java\com\formation\services\UserService.java
 C:\Users\SDJ05\git\LunaJEE\LunaJEE\src\main\java\com\formation\DAO\AdresseDAO.java
 C:\Users\SDJ05\git\LunaJEE\LunaJEE\src\main\java\com\formation\entite\Fournisseur.java
-C:\Users\SDJ05\git\LunaJEE\LunaJEE\src\main\java\com\formation\actions\AccueilCommandeAction.java
 C:\Users\SDJ05\git\LunaJEE\LunaJEE\src\main\java\com\formation\entite\Categorie.java
 C:\Users\SDJ05\git\LunaJEE\LunaJEE\src\main\java\com\formation\services\CategorieService.java
 C:\Users\SDJ05\git\LunaJEE\LunaJEE\src\main\java\com\formation\DAO\UserDAO.java

@@ -1,7 +1,10 @@
-package com.formation.test;
+package com.formation.test.service;
+
+import static org.junit.Assert.assertNotNull;
 
 import java.util.List;
 
+import org.hibernate.SessionFactory;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
@@ -12,49 +15,50 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.formation.DAO.CategorieDAO;
 import com.formation.entite.Categorie;
+import com.formation.services.CategorieService;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class CategorieDaoTest {
+public class CategorieServiceTest {
 
 	private static ApplicationContext context;
-	private static CategorieDAO categorieDAO;
+	private static CategorieService categorieService;
 
 	@BeforeClass
 	public static void oneTimeSetUp() {
 		context = new ClassPathXmlApplicationContext("/applicationContext.xml");
-		categorieDAO = (CategorieDAO) context.getBean("categorieDAO");
+		categorieService = (CategorieService) context.getBean("categorieService");
 	}
-
+	
 	@Test
 	public void test1AddCategorie() {
 		Categorie cat = new Categorie("Electromenager");
-		categorieDAO.addCategorie(cat);
-		Assert.assertEquals(1, categorieDAO.getAllCategorie().size());
+		categorieService.addCategorie(cat);
+		Assert.assertEquals(1, categorieService.getAllCategories().size());
 	}
 
 	@Test
 	public void test2UpdateCategorie() {
-		Categorie cat = categorieDAO.getCategorieById(1);
+		Categorie cat = categorieService.getCategorieById(1);
 		cat.setDesignation("Jouet");
-		categorieDAO.updateCategorie(cat);
-		Assert.assertEquals(cat.getDesignation(), categorieDAO.getCategorieById(1).getDesignation());
+		categorieService.updateCategorie(cat);
+		Assert.assertEquals(cat.getDesignation(), categorieService.getCategorieById(1).getDesignation());
 	}
 
 	@Test
 	public void test3RetrieveCategorie() {
-		Categorie cat = categorieDAO.getCategorieById(1);
+		Categorie cat = categorieService.getCategorieById(1);
 		Assert.assertNotNull(cat);
 	}
 
 	@Test
 	public void test4RetrieveAllCategorie() {
-		List<Categorie> cats = categorieDAO.getAllCategorie();
+		List<Categorie> cats = categorieService.getAllCategories();
 		Assert.assertNotNull(cats);
 	}
 
 	@Test
 	public void test5DeleteCategorie() {
-		categorieDAO.deleteCategorie(1);
-		Assert.assertNull(categorieDAO.getCategorieById(1));
+		categorieService.deleteCategorie(1);
+		Assert.assertNull(categorieService.getCategorieById(1));
 	}
 }

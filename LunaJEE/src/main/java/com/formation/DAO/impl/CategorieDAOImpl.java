@@ -23,6 +23,11 @@ public class CategorieDAOImpl implements CategorieDAO {
 	}
 	
 	@Override
+	public SessionFactory getSessionFactory() {
+		return sessionFactory;
+	}
+	
+	@Override
 	@SuppressWarnings("unchecked")
 	public List<Categorie> getAllCategorie() {
 		return this.sessionFactory.getCurrentSession().createQuery("from Categorie").list();

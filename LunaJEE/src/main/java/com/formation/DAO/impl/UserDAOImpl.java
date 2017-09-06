@@ -50,4 +50,9 @@ public class UserDAOImpl implements UserDAO {
 		this.sessionFactory.getCurrentSession().delete(user);
 	}
 
+	@Override
+	public SessionFactory getSessionFactory() {
+		return sessionFactory;
+	}
+
 }

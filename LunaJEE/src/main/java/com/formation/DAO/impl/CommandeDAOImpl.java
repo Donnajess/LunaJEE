@@ -25,6 +25,10 @@ public class CommandeDAOImpl implements CommandeDAO {
 	}
 
 	@Override
+	public SessionFactory getSessionFactory() {
+		return sessionFactory;
+	}
+	@Override
 	@SuppressWarnings("unchecked")
 	public List<Commande> getAllCommande() {
 		return this.sessionFactory.getCurrentSession().createQuery("from Commande").list();
@@ -37,11 +41,6 @@ public class CommandeDAOImpl implements CommandeDAO {
 
 	@Override
 	public void addCommande(Commande commande) {
-		this.sessionFactory.getCurrentSession().save(commande);
-	}
-
-	@Override
-	public void updateCommande(Commande commande) {
 		this.sessionFactory.getCurrentSession().save(commande);
 	}
 

@@ -63,7 +63,7 @@ public class LoginAction extends ActionSupport implements ModelDriven<User> {
 				addFieldError("user.mdp", "Veuillez saisir un mot de passe");
 				return ERROR;
 			}
-			if (!u.getUsername().equals(user.getUsername()) || (!u.getMdp().equals(user.getMdp()))) {
+			else {
 				addFieldError("user.username", "Les identifiants sont incorrects");
 				return ERROR;
 			}

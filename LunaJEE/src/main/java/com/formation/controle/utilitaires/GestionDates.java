@@ -11,9 +11,9 @@ import java.util.Locale;
 
 public class GestionDates {
 
-	private static final String MATRICE_FR = "dd/MM/yyyy";
+	public static final String MATRICE_FR = "dd/MM/yyyy";
 
-	private static final String TEMPS_FR = "dd/MM/yyyy HH:mm";
+	public static final String TEMPS_FR = "dd/MM/yyyy HH:mm";
 
 	private static final ZoneId UTC = ZoneId.of("UTC");
 

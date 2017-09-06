@@ -31,11 +31,6 @@ public class CommandeServiceImpl implements CommandeService {
 	}
 
 	@Override
-	public void updateCommande(Commande commande) {
-		commandeDAO.updateCommande(commande);
-	}
-
-	@Override
 	public void deleteCommande(long code) {
 		
 		commandeDAO.deleteCommande(code);
