@@ -209,8 +209,8 @@ public class ListCommandeAction extends ActionSupport {
 		return modeReglement;
 	}
 
-	public void setModeReglement(String modeReglement) {
-		this.modeReglement = modeReglement;
+	public void setModeReglement(String modeReglement1) {
+		modeReglement = modeReglement1;
 	}
 
 
