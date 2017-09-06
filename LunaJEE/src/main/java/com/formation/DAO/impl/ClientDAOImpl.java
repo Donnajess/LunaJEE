@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.formation.DAO.ClientDAO;
 import com.formation.entite.Client;
+import com.formation.entite.Commande;
 
 @Repository("clientDAO")
 @Transactional
@@ -43,10 +44,16 @@ public class ClientDAOImpl implements ClientDAO {
 		this.sessionFactory.getCurrentSession().update(client);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void deleteClient(long code) {
+		List<Commande> commandes = this.sessionFactory.getCurrentSession().createQuery("from Commande").list();
 		Client client = sessionFactory.getCurrentSession().get(Client.class, code);
+		for(Commande c : commandes){
+			if(c.getClient().getCode() == client.getCode()){
+				this.sessionFactory.getCurrentSession().delete(c);
+			}
+		}
 		this.sessionFactory.getCurrentSession().delete(client);
 	}
-
 }

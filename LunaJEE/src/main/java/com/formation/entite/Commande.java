@@ -29,7 +29,7 @@ public class Commande implements Serializable {
 	@GeneratedValue
 	private Long code;
 
-	@ManyToOne(cascade = CascadeType.PERSIST)
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Client client;
 
 	private String modeReglement;
@@ -59,7 +59,7 @@ public class Commande implements Serializable {
 	public Commande(Client client, String modeReglement, LocalDateTime date, List<Ligne> lignes) {
 		super();
 		this.client = client;
-		this.modeReglement = modeReglement;
+		this.setModeReglement(modeReglement);
 		this.date = date;
 		this.lignes = lignes;
 	}
@@ -87,9 +87,6 @@ public class Commande implements Serializable {
 				.sum();
 	}
 
-	public String getReglement() {
-		return modeReglement;
-	}
 
 	public Instant getInstant() {
 		return GestionDates.instant(date);
@@ -99,9 +96,6 @@ public class Commande implements Serializable {
 		this.client = client;
 	}
 
-	public void setReglement(String leReglement) {
-		this.modeReglement = leReglement;
-	}
 
 	void setDate(LocalDateTime date) {
 		this.date = date;
@@ -137,5 +131,13 @@ public class Commande implements Serializable {
 
 	public void setPrixTTC(double prixTTC) {
 		this.prixTTC = prixTTC;
+	}
+
+	public String getModeReglement() {
+		return modeReglement;
+	}
+
+	public void setModeReglement(String modeReglement) {
+		this.modeReglement = modeReglement;
 	}
 }

@@ -13,6 +13,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.formation.DAO.AdresseDAO;
 import com.formation.DAO.ClientDAO;
+import com.formation.DAO.CommandeDAO;
 import com.formation.entite.Adresse;
 import com.formation.entite.Client;
 

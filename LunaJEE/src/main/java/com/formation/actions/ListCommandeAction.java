@@ -120,7 +120,7 @@ public class ListCommandeAction extends ActionSupport {
 	public String valide() {
 		Client monClient = null;
 		monClient = clientService.getClientById(Long.parseLong(client));
-		Commande c = new Commande(monClient, "Cheques", LocalDateTime.now(), new ArrayList<Ligne>());
+		Commande c = new Commande(monClient, modeReglement, LocalDateTime.now(), new ArrayList<Ligne>());
 		for (Ligne l : commandeList) {
 			c.ajouter(l);
 		}
