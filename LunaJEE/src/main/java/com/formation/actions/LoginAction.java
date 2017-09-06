@@ -2,7 +2,7 @@ package com.formation.actions;
 
 import java.util.List;
 
-import javax.validation.Valid;
+
 
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Result;
@@ -19,7 +19,8 @@ import com.opensymphony.xwork2.ModelDriven;
 public class LoginAction extends ActionSupport implements ModelDriven<User> {
 
 	private static final long serialVersionUID = 1L;
-	@Valid
+	
+
 	private User user;
 
 	@Autowired

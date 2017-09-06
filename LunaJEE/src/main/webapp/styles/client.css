@@ -171,6 +171,7 @@ table {
 	border: medium solid #004080;
 	border-collapse: collapse;
 	width: 50%;
+	overflow:auto; 
 }
 
 th {
