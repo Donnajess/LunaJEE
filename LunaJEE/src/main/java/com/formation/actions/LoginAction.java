@@ -19,7 +19,6 @@ import com.opensymphony.xwork2.ModelDriven;
 public class LoginAction extends ActionSupport implements ModelDriven<User> {
 
 	private static final long serialVersionUID = 1L;
-	
 
 	private User user;
 

@@ -1,7 +1,6 @@
 com\formation\actions\ListArticleAction.class
 com\formation\actions\LoginAction.class
 com\formation\entite\Client.class
-com\formation\entite\Fournisseur.class
 com\formation\services\ArticleService.class
 com\formation\services\ClientService.class
 com\formation\DAO\UserDAO.class

@@ -6,6 +6,14 @@ select {
 	appearance: none;
 }
 
+.tableMenu td, th, tr {
+	margin: 0px;
+	padding: 0px;
+}
+.tableMenu {
+	border: none;
+}
+
 .labelTitre {
 	font-family: cursive;
 	border: thin solid #27AE60;
@@ -61,7 +69,7 @@ select {
 }
 
 .login-page {
-	width: 600px;
+	width: 800px;
 	padding: 8% 0 0;
 	margin: auto;
 }
@@ -88,7 +96,7 @@ select {
 	position: relative;
 	z-index: 1;
 	background: #FFFFFF;
-	max-width: 600px;
+	max-width: 1000px;
 	margin: 0 auto 100px;
 	padding: 45px;
 	text-align: center;
@@ -215,4 +223,8 @@ td {
 
 caption {
 	font-family: sans-serif;
+}
+
+.content {
+	overflow-x:auto;
 }

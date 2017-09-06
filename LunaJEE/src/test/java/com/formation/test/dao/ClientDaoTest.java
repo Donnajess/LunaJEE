@@ -49,25 +49,25 @@ public class ClientDaoTest {
 	
 	@Test
 	public void test1AddClient() {
-		Adresse adr = new Adresse("35 rue peupliers", "59000", "Lille");
-		adresseDAO.addAdresse(adr);
+//		Adresse adr = new Adresse("35 rue peupliers", "59000", "Lille");
+//		adresseDAO.addAdresse(adr);
 		Instant inst = Instant.now();
-		Client cli = new Client("Malleret", "Kevin", true, inst, adr);
+		Client cli = new Client("Malleret", "Kevin", true, inst, adresseDAO.getAdresseById(1));
 		clientDAO.addClient(cli);
 		Assert.assertEquals(1, clientDAO.getAllClient().size());
 	}
 
 	@Test
 	public void test2UpdateClient() {
-		Client cli = clientDAO.getClientById(2);
+		Client cli = clientDAO.getClientById(1);
 		cli.setNom("Mich");
 		clientDAO.updateClient(cli);
-		Assert.assertEquals(cli.getNom(), clientDAO.getClientById(2).getNom());
+		Assert.assertEquals(cli.getNom(), clientDAO.getClientById(1).getNom());
 	}
 
 	@Test
 	public void test3RetrieveClient() {
-		Client cli = clientDAO.getClientById(2);
+		Client cli = clientDAO.getClientById(1);
 		Assert.assertNotNull(cli);
 	}
 
@@ -80,10 +80,10 @@ public class ClientDaoTest {
 	@Test
 	public void test5DeleteClient() {
 		List<Ligne> lignes = new ArrayList<Ligne>();
-		Commande c = new Commande(clientDAO.getClientById(2), "Cheques", LocalDateTime.now(), lignes);
+		Commande c = new Commande(clientDAO.getClientById(1), "Cheques", LocalDateTime.now(), lignes);
 		commandeDAO.addCommande(c);
-		clientDAO.deleteClient(2);
-		Assert.assertNull(clientDAO.getClientById(2));
+		clientDAO.deleteClient(1);
+		Assert.assertNull(clientDAO.getClientById(1));
 	}
 
 }

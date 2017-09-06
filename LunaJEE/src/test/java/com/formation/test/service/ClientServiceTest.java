@@ -45,25 +45,25 @@ public class ClientServiceTest {
 	
 	@Test
 	public void test1AddClient() {
-		Adresse adr = new Adresse("35 rue peupliers", "59000", "Lille");
-		adresseDAO.addAdresse(adr);
+//		Adresse adr = new Adresse("35 rue peupliers", "59000", "Lille");
+//		adresseDAO.addAdresse(adr);
 		Instant inst = Instant.now();
-		Client cli = new Client("Malleret", "Kevin", true, inst, adr);
+		Client cli = new Client("Malleret", "Kevin", true, inst, adresseDAO.getAdresseById(1));
 		clientService.addClient(cli);
 		Assert.assertEquals(1, clientService.getAllClient().size());
 	}
 
 	@Test
 	public void test2UpdateClient() {
-		Client cli = clientService.getClientById(2);
+		Client cli = clientService.getClientById(1);
 		cli.setNom("Mich");
 		clientService.updateClient(cli);
-		Assert.assertEquals(cli.getNom(), clientService.getClientById(2).getNom());
+		Assert.assertEquals(cli.getNom(), clientService.getClientById(1).getNom());
 	}
 
 	@Test
 	public void test3RetrieveClient() {
-		Client cli = clientService.getClientById(2);
+		Client cli = clientService.getClientById(1);
 		Assert.assertNotNull(cli);
 	}
 
@@ -76,10 +76,10 @@ public class ClientServiceTest {
 	@Test
 	public void test5DeleteClient() {
 		List<Ligne> lignes = new ArrayList<Ligne>();
-		Commande c = new Commande(clientService.getClientById(2), "Cheques", LocalDateTime.now(), lignes);
+		Commande c = new Commande(clientService.getClientById(1), "Cheques", LocalDateTime.now(), lignes);
 		commandeService.addCommande(c);
-		clientService.deleteClient(2);
-		Assert.assertNull(clientService.getClientById(2));
+		clientService.deleteClient(1);
+		Assert.assertNull(clientService.getClientById(1));
 	}
 
 }

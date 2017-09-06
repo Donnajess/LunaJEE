@@ -61,7 +61,7 @@ select {
 }
 
 .login-page {
-	width: 600px;
+	width: 800px;
 	padding: 8% 0 0;
 	margin: auto;
 }
@@ -69,7 +69,7 @@ select {
 .form {
 	z-index: 1;
 	background: #FFFFFF;
-	max-width: 600px;
+	max-width: 1000px;
 	margin: 0 auto 100px;
 	padding: 45px;
 	text-align: center;
@@ -194,4 +194,8 @@ td {
 
 caption {
 	font-family: sans-serif;
+}
+
+.content {
+	overflow-x:auto;
 }

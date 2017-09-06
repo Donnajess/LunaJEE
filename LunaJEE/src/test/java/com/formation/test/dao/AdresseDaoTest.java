@@ -37,7 +37,7 @@ public class AdresseDaoTest {
 	
 	@Test
 	public void test1AddAdresse() {
-		Adresse adresse = new Adresse("35 rue peupliers", "59000", "Lille");
+		Adresse adresse = new Adresse("35 rue peupliers", "59600", "Lille");
 		adresseDAO.addAdresse(adresse);
 		Assert.assertEquals(1, adresseDAO.getAllAdresse().size());
 	}
