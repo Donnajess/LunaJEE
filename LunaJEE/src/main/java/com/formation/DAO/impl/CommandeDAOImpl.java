@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.formation.DAO.CommandeDAO;
+import com.formation.entite.Client;
 import com.formation.entite.Commande;
+import com.formation.entite.Ligne;
 
 @Repository("commandeDAO")
 @Transactional
@@ -43,9 +45,14 @@ public class CommandeDAOImpl implements CommandeDAO {
 		this.sessionFactory.getCurrentSession().save(commande);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void deleteCommande(long code) {
 		Commande commande = sessionFactory.getCurrentSession().get(Commande.class, code);
+//		for(Ligne l : commande.getLignes()){
+//			Ligne ligne = this.sessionFactory.getCurrentSession().get(Ligne.class, l.getId());
+//			this.sessionFactory.getCurrentSession().delete(ligne);
+//		}
 		this.sessionFactory.getCurrentSession().delete(commande);
 	}
 

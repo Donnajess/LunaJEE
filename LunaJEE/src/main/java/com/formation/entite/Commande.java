@@ -29,7 +29,7 @@ public class Commande implements Serializable {
 	@GeneratedValue
 	private Long code;
 
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	private Client client;
 
 	private String modeReglement;

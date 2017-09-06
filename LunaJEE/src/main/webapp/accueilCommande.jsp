@@ -34,7 +34,7 @@
 		</table>
 		<div class="form">
 			<s:form cssClass="centre" theme="css_xhtml" action="addLigne">
-				<s:label cssClass="labelTitre" value="Accueil Commande"></s:label>
+				<s:label cssClass="labelTitre" value="Accueil Commande"><img src="images/commande.png"/></s:label>
 				</br>
 				<s:select label="Client" class="styled-select orange semi-square"
 					list="listClient" listValue="nom" listKey="code" name="client" />
@@ -67,7 +67,7 @@
 							<td><s:property value="article.designation" /></td>
 							<td><s:property value="quantite" /></td>
 							<td><s:property value="prix" /></td>
-							<td><s:a action="deleteLigne?identifiant=%{identifiant}">Supprimer</s:a></td>
+							<td><s:a action="deleteLigne?identifiant=%{identifiant}"><img src="images/delete.png"/></s:a></td>
 						</tr>
 					</s:iterator>
 				</table>

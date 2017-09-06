@@ -23,14 +23,14 @@
 						<s:submit value="Article" cssClass="boutonArticle" />
 					</s:form></td>
 				<td><s:form cssClass="centre" theme="css_xhtml"
-						action="listCommande">
+						action="donneListes">
 						<s:submit value="Commande" cssClass="boutonCommande" />
 					</s:form></td>
 			</tr>
 		</table>
 		<div class="form">
 			<s:form cssClass="centre" theme="css_xhtml" action="addClient">
-				<s:label cssClass="labelTitre" value="Accueil Client"></s:label>
+				<s:label cssClass="labelTitre" value="Accueil Client"><img src="images/user.png"/></s:label>
 				<s:label></s:label>
 				<s:textfield type="text" placeholder="Nom" name="client.nom" />
 				<s:textfield type="text" placeholder="Prénom" name="client.prenom" />
@@ -60,8 +60,8 @@
 							<td><s:property value="prenom" /></td>
 							<td><s:property value="carte_fidele" /></td>
 							<td><s:property value="adresse.ville" /></td>
-							<td><s:a action="updateClient?code=%{code}">Modifier</s:a></td>
-							<td><s:a action="deleteClient?code=%{code}">Suppression</s:a></td>
+							<td><s:a action="updateClient?code=%{code}"><img src="images/modif.png"/></s:a></td>
+							<td><s:a action="deleteClient?code=%{code}"><img src="images/delete.png"/></s:a></td>
 						</tr>
 					</s:iterator>
 				</table>

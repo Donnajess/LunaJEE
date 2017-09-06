@@ -26,15 +26,18 @@
 						<s:submit value="Article" cssClass="boutonArticle" />
 					</s:form></td>
 				<td><s:form cssClass="centre" theme="css_xhtml"
-						action="listCommande">
+						action="donneListes">
 						<s:submit value="Commande" cssClass="boutonCommande" />
 					</s:form></td>
 			</tr>
 		</table>
 		<div class="form">
-			<s:label cssClass="labelTitre" value="Liste des commandes"></s:label>
-				</br>
-				</br>
+			<s:form class="centre" theme="css_xhtml">
+				<s:label cssClass="labelTitre" value="Liste des commandes">
+					<img src="images/commande.png" />
+				</s:label>
+			</s:form>
+			</br> </br>
 			<div class="content">
 				<table align="center" class="commandeTable" cellpadding="5px"
 					border="1px solid black">
@@ -49,13 +52,11 @@
 							<td><s:property value="client.nom" /></td>
 							<td><s:property value="prixTTC" /></td>
 							<td><s:property value="modeReglement" /></td>
-							<td><s:a action="deleteCommande?code=%{code}">Supprimer</s:a></td>
+							<td><s:a action="deleteCommande?code=%{code}"><img src="images/delete.png"/></s:a></td>
 						</tr>
 					</s:iterator>
 				</table>
 			</div>
 		</div>
-	</div>
-
 </body>
 </html>

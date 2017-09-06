@@ -71,6 +71,18 @@ public class ListCommandeAction extends ActionSupport {
 
 	private String quantite;
 
+	@Action("donneListes")
+	public String donneListes(){
+		listArticle = articleService.getAllArticles();
+		listClient = clientService.getAllClient();
+		listReglements = new ArrayList<String>();
+		commandeList.clear();
+		listReglements.add("Cheques");
+		listReglements.add("Carte Bleue");
+		listReglements.add("PayPal");
+		return SUCCESS;
+	}
+	
 	@Override
 	public String execute() throws Exception {
 		listArticle = articleService.getAllArticles();

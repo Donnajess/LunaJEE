@@ -19,7 +19,15 @@ public class Ligne implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@ManyToOne(cascade = { CascadeType.ALL }, optional = false)
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	@ManyToOne(cascade = { CascadeType.PERSIST }, optional = false)
 	private Article article;
 
 	@ManyToOne(cascade = { CascadeType.ALL }, optional = false)
