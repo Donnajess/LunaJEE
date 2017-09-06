@@ -11,7 +11,7 @@
 </head>
 <body>
 	<div class="login-page">
-		<table>
+		<table class="tableMenu">
 			<tr>
 				<td><s:form cssClass="centre" theme="css_xhtml"
 						action="accueil">
@@ -49,10 +49,10 @@
 				<table align="center" class="userTable" cellpadding="5px"
 					border="1px solid black">
 					<tr class="even">
-						<th>Designation</th>
-						<th>Categorie</th>
+						<th>Désignation</th>
+						<th>Catégorie</th>
 						<th>Quantité</th>
-						<th>Prix_Unitaire</th>
+						<th>Prix Unitaire</th>
 						<th></th>
 						<th></th>
 					</tr>
