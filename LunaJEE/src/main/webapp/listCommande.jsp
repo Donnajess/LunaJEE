@@ -52,7 +52,11 @@
 							<td><s:property value="client.nom" /></td>
 							<td><s:property value="prixTTC" /></td>
 							<td><s:property value="modeReglement" /></td>
-							<td><s:a action="deleteCommande?code=%{code}"><img src="images/delete.png"/></s:a></td>
+							<td><s:a action="deleteCommande?code=%{code}"
+									onclick="javascript: if (confirm('Voulez-vous supprimer cet article ?'))  
+														return true; else return false; ">
+									<img src="images/delete.png" />
+								</s:a></td>
 						</tr>
 					</s:iterator>
 				</table>

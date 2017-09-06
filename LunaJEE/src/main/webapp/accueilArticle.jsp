@@ -29,7 +29,9 @@
 		</table>
 		<div class="form">
 			<s:form cssClass="centre" theme="css_xhtml" action="addArticle">
-				<s:label cssClass="labelTitre" value="Accueil Article"><img src="images/article.png"/></s:label>
+				<s:label cssClass="labelTitre" value="Accueil Article">
+					<img src="images/article.png" />
+				</s:label>
 				<s:label></s:label>
 				<s:textfield type="text" placeholder="Designation"
 					name="article.designation" />
@@ -39,7 +41,7 @@
 					name="article.prixUnitaire" />
 				<s:select list="listCategories" class="styled-select green rounded"
 					listValue="designation" name="cat" listKey="code" />
-					<br>
+				<br>
 				<s:submit value="Créer" cssClass="bouton" />
 			</s:form>
 
@@ -60,8 +62,14 @@
 							<td><s:property value="categorie.designation" /></td>
 							<td><s:property value="quantite" /></td>
 							<td><s:property value="prixUnitaire" /></td>
-							<td><s:a action="updateArticle?code=%{code}"><img src="images/modif.png"/></s:a></td>
-							<td><s:a action="deleteArticle?code=%{code}"><img src="images/delete.png"/></s:a></td>
+							<td><s:a action="updateArticle?code=%{code}">
+									<img src="images/modif.png" />
+								</s:a></td>
+							<td><s:a action="deleteArticle?code=%{code}"
+									onclick="javascript: if (confirm('Voulez-vous supprimer cet article ?'))  
+														return true; else return false; ">
+									<img src="images/delete.png" />
+								</s:a></td>
 						</tr>
 					</s:iterator>
 				</table>
