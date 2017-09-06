@@ -10,6 +10,9 @@ import org.springframework.stereotype.Repository;
 
 import com.formation.DAO.ArticleDAO;
 import com.formation.entite.Article;
+import com.formation.entite.Client;
+import com.formation.entite.Commande;
+import com.formation.entite.Ligne;
 
 @Repository("articleDAO")
 @Transactional
@@ -43,9 +46,18 @@ public class ArticleDAOImpl implements ArticleDAO {
 		this.sessionFactory.getCurrentSession().update(article);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void deleteArticle(long code) {
+		List<Commande> commandes = this.sessionFactory.getCurrentSession().createQuery("from Commande").list();
 		Article article = sessionFactory.getCurrentSession().get(Article.class, code);
+		for(Commande c : commandes){
+			for(Ligne l : c.getLignes()){
+				if(l.getArticle().getCode() == article.getCode()){
+					this.sessionFactory.getCurrentSession().delete(c);
+				}
+			}
+		}
 		this.sessionFactory.getCurrentSession().delete(article);
 	}
 

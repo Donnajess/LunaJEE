@@ -2,6 +2,7 @@ package com.formation.entite;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,10 +19,10 @@ public class Ligne implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@ManyToOne(optional = false)
+	@ManyToOne(cascade = { CascadeType.ALL }, optional = false)
 	private Article article;
 
-	@ManyToOne(optional = false)
+	@ManyToOne(cascade = { CascadeType.ALL }, optional = false)
 	private Commande commande;
 
 	private int quantite;
