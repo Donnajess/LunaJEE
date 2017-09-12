@@ -30,6 +30,30 @@ public class ListCommandeAction extends ActionSupport {
 	private CommandeService commandeService;
 	@Autowired
 	private ClientService clientService;
+	public CommandeService getCommandeService() {
+		return commandeService;
+	}
+
+	public void setCommandeService(CommandeService commandeService) {
+		this.commandeService = commandeService;
+	}
+
+	public ClientService getClientService() {
+		return clientService;
+	}
+
+	public void setClientService(ClientService clientService) {
+		this.clientService = clientService;
+	}
+
+	public ArticleService getArticleService() {
+		return articleService;
+	}
+
+	public void setArticleService(ArticleService articleService) {
+		this.articleService = articleService;
+	}
+
 	@Autowired
 	private ArticleService articleService;
 

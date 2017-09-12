@@ -34,6 +34,14 @@ public class AffichageCommandeAction extends ActionSupport implements ModelDrive
 	@Autowired 
 	private CommandeService commandeService;
 	
+	public CommandeService getCommandeService() {
+		return commandeService;
+	}
+
+	public void setCommandeService(CommandeService commandeService) {
+		this.commandeService = commandeService;
+	}
+
 	@Override
 	public String execute() throws Exception {
 		commandeList = commandeService.getAllCommande();
